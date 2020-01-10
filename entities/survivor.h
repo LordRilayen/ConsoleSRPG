@@ -1,126 +1,129 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 namespace Entities
 {
 	class Survivor
 	{
-		private:
-			string Name;
-			string Class;
+	public:
+		std::string GetName();
+		void SetName(std::string Name);
+		std::string GetClass();
+		void SetClass(std::string Class);
 
-			//Basic stats
-			int Level;
-			int HealthPoints;
-			int ManaPoints;
-			int TotalExperience;
-			int NeededExperience;
-			int Strength;
-			int Defense;
-			int Intelligence;
-			int Resistance;
-			int Accuracy;
-			int Speed;
-			int Movement;
-			int CriticalChance;
-			int CriticalBonus;
+		int GetLevel();
+		void SetLevel(int Lvl);
+		int GetHealthPoints();
+		void SetHealthPoints(int HP);
+		int GetManaPoints();
+		void SetManaPoints(int MP);
+		int GetTotalExperience();
+		void SetTotalExperience(int TXp);
+		int GetNeededExperience();
+		void SetNeededExperience(int NXp);
+		int GetStrength();
+		void SetStrength(int Str);
+		int GetDefense();
+		void SetDefense(int Def);
+		int GetIntelligence();
+		void SetIntelligence(int Int);
+		int GetResistence();
+		void SetResistence(int Res);
+		int GetAccuracy();
+		void SetAccuracy(int Acc);
+		int GetSpeed();
+		void SetSpeed(int Spd);
+		int GetMovement();
+		void SetMovement(int Move);
+		int GetCriticalChance();
+		void SetCriticalChance(int CritCh);
+		int GetCriticalBonus();
+		void SetCriticalBonus(int CritBn);
 
-			//Resistances
-			int FireResistance;
-			int IceResistance;
-			int ThunderResistance;
-			int WaterResistance;
+		int GetFireResistence();
+		void SetFireResistence(int Fire);
+		int GetIceResistence();
+		void SetIceResistence(int Ice);
+		int GetThunderResistence();
+		void SetThunderResistence(int Thn);
+		int GetWaterResistence();
+		void SetWaterResistence(int Wtr);
 
-			//Weapon Proficiencies
-			int Fist;
-			int Sword;
-			int Shield;
-			int Spear;
-			int Bow;
-			int Gun;
-			int Axe;
-			int Staff;
+		int GetFistProficiency();
+		void SetFistProficiency(int FistPro);
+		int GetSwordProficiency();
+		void SetSwordProficiency(int SwdPro);
+		int GetSpearProficiency();
+		void SetSpearProficiency(int SprPro);
+		int GetBowProficiency();
+		void SetBowProficiency(int BowPro);
+		int GetGunProficiency();
+		void SetGunProficiency(int GunPro);
+		int GetAxeProficiency();
+		void SetAxeProficiency(int AxePro);
+		int GetStaffProficiency();
+		void SetStaffProficiency(int StfPro);
 
-			//Current Equipment
-			//TODO: Make classes for these
-			string RightWeapon;
-			string LeftWeapon;
-			string Helmet;
-			string Armor;
-			string Gloves;
-			string AccessoryOne;
-			string AccessoryTwo;
-		
-		public:
-			string GetName();
-			void SetName();
+		std::string GetRightWeapon();
+		void SetRightWeapon(std::string RW);
+		std::string GetLeftWeapon();
+		void SetLeftWeapon(std::string LW);
+		std::string GetHelmet();
+		void SetHelmet(std::string Hlm);
+		std::string GetArmor();
+		void SetArmor(std::string Arm);
+		std::string GetGloves();
+		void SetGloves(std::string Glv);
+		std::string GetAccessoryOne();
+		void SetAccessoryOne(std::string Acs1);
+		std::string GetAccessoryTwo();
+		void SetAccessoryTwo(std::string Acs2);
 
-			int GetLevel();
-			void SetLevel();
-			int GetHealthPoints();
-			void SetHealthPoints();
-			int GetManaPoints();
-			void SetManaPoints();
-			int GetTotalExperience();
-			void SetTotalExperience();
-			int GetNeededExperience();
-			void SetNeededExperience();
-			int GetStrength();
-			void SetStrength();
-			int GetDefense();
-			void SetDefense();
-			int GetIntelligence();
-			void SetIntelligence();
-			int GetResistence();
-			void SetResistence();
-			int GetAccuracy();
-			void SetAccuracy();
-			int GetSpeed();
-			void SetSpeed();
-			int GetMovement();
-			void SetMovement();
-			int GetCriticalChance();
-			void SetCriticalChance();
-			int GetCriticalBonus();
-			void SetCriticalBonus();
+	private:
+		std::string Name;
+		std::string Class;
 
-			int GetFireResistence();
-			void SetFireResistence();
-			int GetIceResistence();
-			void SetIceResistence();
-			int GetThunderResistence();
-			void SetThunderResistence();
-			int GetWaterResistence();
-			void SetWaterResistence();
+		//Basic stats
+		int Level;
+		int HealthPoints;
+		int ManaPoints;
+		int TotalExperience;
+		int NeededExperience;
+		int Strength;
+		int Defense;
+		int Intelligence;
+		int Resistance;
+		int Accuracy;
+		int Speed;
+		int Movement;
+		int CriticalChance;
+		int CriticalBonus;
 
-			int GetFist();
-			void SetFist();
-			int GetSword();
-			void SetSword();
-			int GetSpear();
-			void SetSpear();
-			int GetBow();
-			void SetBow();
-			int GetGun();
-			void SetGun();
-			int GetAxe();
-			void SetAxe();
-			int GetStaff();
-			void SetStaff();
+		//Resistances
+		int FireResistance;
+		int IceResistance;
+		int ThunderResistance;
+		int WaterResistance;
 
-			string GetRightWeapon();
-			void SetRightWeapon();
-			string GetLeftWeapon();
-			void SetRightWeapon();
-			string GetHelmet();
-			void SetHelmet();
-			string GetArmor();
-			void SetArmor();
-			string GetGloves();
-			void SetGloves();
-			string GetAccessoryOne();
-			void SetAccessoryOne();
-			string GetAccessoryTwo();
-			void SetAccessoryTwo();
+		//Weapon Proficiencies
+		int FistProficiency;
+		int SwordProficiency;
+		int ShieldProficiency;
+		int SpearProficiency;
+		int BowProficiency;
+		int GunProficiency;
+		int AxeProficiency;
+		int StaffProficiency;
+
+		//Current Equipment
+		//TODO: Make classes for these
+		std::string RightWeapon;
+		std::string LeftWeapon;
+		std::string Helmet;
+		std::string Armor;
+		std::string Gloves;
+		std::string AccessoryOne;
+		std::string AccessoryTwo;
 	};
 }

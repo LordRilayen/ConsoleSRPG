@@ -81,7 +81,7 @@ namespace Entities
 		void SetAccessoryTwo(std::string Acs2);
 
 	private:
-		std::string Name;
+		std::string Name = "Default";
 		std::string Class;
 
 		//Basic stats

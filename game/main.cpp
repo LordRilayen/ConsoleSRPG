@@ -11,6 +11,7 @@ int main()
 
 	Entities::Survivor survivor;
 	//figure out how to call a function
+	std::cout << survivor.GetName();
 
 	return 0;
 }

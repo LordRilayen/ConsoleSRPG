@@ -81,11 +81,11 @@ namespace Entities
 		void SetAccessoryTwo(std::string Acs2);
 
 	private:
-		std::string Name = "Default";
-		std::string Class;
+		std::string Name = "Roxas";
+		std::string Class = "Survivor";
 
 		//Basic stats
-		int Level;
+		int Level = 1;
 		int HealthPoints;
 		int ManaPoints;
 		int TotalExperience;

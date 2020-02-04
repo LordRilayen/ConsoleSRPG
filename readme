@@ -1,2 +1,2 @@
 #Compile command:
-#	cl ../game/main.cpp ../game/main.cpp
+#	cl ../game/main.cpp ../entities/Survivor.cpp

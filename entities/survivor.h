@@ -7,6 +7,7 @@ namespace Entities
 	class Survivor
 	{
 	public:
+		//Getters and Setters-------------------------------------
 		std::string GetName();
 		void SetName(std::string Name);
 		std::string GetClass();
@@ -14,10 +15,14 @@ namespace Entities
 
 		int GetLevel();
 		void SetLevel(int Lvl);
-		int GetHealthPoints();
-		void SetHealthPoints(int HP);
-		int GetManaPoints();
-		void SetManaPoints(int MP);
+		int GetCurrentHealthPoints();
+		void SetCurrentHealthPoints(int CHP);
+		int GetMaxHealthPoints();
+		void SetMaxHealthPoints(int MHP);
+		int GetCurrentManaPoints();
+		void SetCurrentManaPoints(int CMP);
+		int GetMaxManaPoints();
+		void SetMaxManaPoints(int MMP);
 		int GetTotalExperience();
 		void SetTotalExperience(int TXp);
 		int GetNeededExperience();
@@ -79,51 +84,58 @@ namespace Entities
 		void SetAccessoryOne(std::string Acs1);
 		std::string GetAccessoryTwo();
 		void SetAccessoryTwo(std::string Acs2);
+		//---------------------------------------------------
+
+		//Practical functions--------------------------------
+		void GetCompleteStatus();
+		//---------------------------------------------------
 
 	private:
-		std::string Name = "Default";
-		std::string Class;
+		std::string Name = "Roxas";
+		std::string Class = "Survivor";
 
 		//Basic stats
-		int Level;
-		int HealthPoints;
-		int ManaPoints;
-		int TotalExperience;
-		int NeededExperience;
-		int Strength;
-		int Defense;
-		int Intelligence;
-		int Resistance;
-		int Accuracy;
-		int Speed;
-		int Movement;
-		int CriticalChance;
-		int CriticalBonus;
+		int Level = 1;
+		int CurrentHealthPoints = 10;
+		int MaxHealthPoints = 10;
+		int CurrentManaPoints = 3;
+		int MaxManaPoints = 3;
+		int TotalExperience = 0;
+		int NeededExperience = 15;
+		int Strength = 1;
+		int Defense = 1;
+		int Intelligence = 1;
+		int Resistance = 1;
+		int Accuracy = 1;
+		int Speed = 1;
+		int Movement = 5;
+		int CriticalChance = 1;
+		int CriticalBonus = 1;
 
 		//Resistances
-		int FireResistance;
-		int IceResistance;
-		int ThunderResistance;
-		int WaterResistance;
+		int FireResistance = 0;
+		int IceResistance = 0;
+		int ThunderResistance = 0;
+		int WaterResistance = 0;
 
 		//Weapon Proficiencies
-		int FistProficiency;
-		int SwordProficiency;
-		int ShieldProficiency;
-		int SpearProficiency;
-		int BowProficiency;
-		int GunProficiency;
-		int AxeProficiency;
-		int StaffProficiency;
+		int FistProficiency = 0;
+		int SwordProficiency = 0;
+		int ShieldProficiency = 0;
+		int SpearProficiency = 0;
+		int BowProficiency = 0;
+		int GunProficiency = 0;
+		int AxeProficiency = 0;
+		int StaffProficiency = 0;
 
 		//Current Equipment
 		//TODO: Make classes for these
-		std::string RightWeapon;
-		std::string LeftWeapon;
-		std::string Helmet;
-		std::string Armor;
-		std::string Gloves;
-		std::string AccessoryOne;
-		std::string AccessoryTwo;
+		std::string RightWeapon = "";
+		std::string LeftWeapon = "";
+		std::string Helmet = "";
+		std::string Armor = "";
+		std::string Gloves = "";
+		std::string AccessoryOne = "";
+		std::string AccessoryTwo = "";
 	};
 }

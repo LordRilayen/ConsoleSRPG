@@ -1,0 +1,42 @@
+Characters:
+	All characters have the following stats (these are default starting values):
+		Name: "Roxas"
+		Class: "Survivor"
+		STATS
+		Level: 1
+		HP: 10/10
+		MP: 3/3
+		EXP: 0/15
+		Str: 1
+		Def: 1
+		Int: 1
+		Res: 1
+		Acc: 1
+		Spd: 1
+		Mov: 5
+		CrC: 1
+		CrB: 1
+		ELEMENTAL RESISTANCES
+		Fire: 0
+		Ice: 0
+		Thunder: 0
+		Water: 0
+		WEAPON PROFICIENCIES
+		Fist: 0
+		Sword: 0
+		Shield: 0
+		Spear: 0
+		Bow: 0
+		Gun: 0
+		Axe: 0
+		Staff: 0
+
+	All characters have the following seven equipment slots (which are empty by default for a new character):
+		CURRENT EQUIPMENT
+		Right Weapon:
+		Left Weapon:
+		Helmet:
+		Armor:
+		Gloves:
+		Accessory One:
+		Accessory Two:

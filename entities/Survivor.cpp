@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-
+//Getters and Setters------------------------------------------------
 std::string Entities::Survivor::GetName()
 {
 	return Name;
@@ -27,21 +27,37 @@ void Entities::Survivor::SetLevel(int PLvl)
 {
 	Level = PLvl;
 }
-int Entities::Survivor::GetHealthPoints()
+int Entities::Survivor::GetCurrentHealthPoints()
 {
-	return HealthPoints;
+	return CurrentHealthPoints;
 }
-void Entities::Survivor::SetHealthPoints(int PHP)
+void Entities::Survivor::SetCurrentHealthPoints(int PCHP)
 {
-	HealthPoints = PHP;
+	CurrentHealthPoints = PCHP;
 }
-int Entities::Survivor::GetManaPoints()
+int Entities::Survivor::GetMaxHealthPoints()
 {
-	return ManaPoints;
+	return MaxHealthPoints;
 }
-void Entities::Survivor::SetManaPoints(int PMP)
+void Entities::Survivor::SetMaxHealthPoints(int PMHP)
 {
-	ManaPoints = PMP;
+	MaxHealthPoints = PMHP;
+}
+int Entities::Survivor::GetCurrentManaPoints()
+{
+	return CurrentManaPoints;
+}
+void Entities::Survivor::SetCurrentManaPoints(int PCMP)
+{
+	CurrentManaPoints = PCMP;
+}
+int Entities::Survivor::GetMaxManaPoints()
+{
+	return MaxManaPoints;
+}
+void Entities::Survivor::SetMaxManaPoints(int PMMP)
+{
+	MaxManaPoints = PMMP;
 }
 int Entities::Survivor::GetTotalExperience()
 {
@@ -277,3 +293,51 @@ void Entities::Survivor::SetAccessoryTwo(std::string PAcs2)
 {
 	AccessoryTwo = PAcs2;
 }
+//------------------------------------------------------------------
+
+//Practical functions-----------------------------------------------
+void Entities::Survivor::GetCompleteStatus()
+{
+	std::cout <<
+		"Name: " << Name << std::endl <<
+		"Class: " << Class << std::endl <<
+		"STATS " << std::endl <<
+		"Level: " << Level << std::endl <<
+		"HP: " << CurrentHealthPoints << "/" << MaxHealthPoints << std::endl <<
+		"MP: " << CurrentManaPoints << "/" << MaxManaPoints << std::endl <<
+		"EXP: " << TotalExperience << "/" << NeededExperience << std::endl <<
+		"Str: " << Strength << std::endl <<
+		"Def: " << Defense << std::endl <<
+		"Int: " << Intelligence << std::endl <<
+		"Res: " << Resistance << std::endl <<
+		"Acc: " << Accuracy << std::endl <<
+		"Spd: " << Speed << std::endl <<
+		"Mov: " << Movement << std::endl <<
+		"CrC: " << CriticalChance << std::endl <<
+		"CrB: " << CriticalBonus << std::endl <<
+		"ELEMENTAL RESISTANCES" << std::endl <<
+		"Fire: " << FireResistance << std::endl <<
+		"Ice: " << IceResistance << std::endl <<
+		"Thunder: " << ThunderResistance << std::endl <<
+		"Water: " << WaterResistance << std::endl <<
+		"WEAPON PROFICIENCIES" << std::endl <<
+		"Fist: " << FistProficiency << std::endl <<
+		"Sword: " << SwordProficiency << std::endl <<
+		"Shield: " << ShieldProficiency << std::endl <<
+		"Spear: " << SpearProficiency << std::endl <<
+		"Bow: " << BowProficiency << std::endl <<
+		"Gun: " << GunProficiency << std::endl <<
+		"Axe: " << AxeProficiency << std::endl <<
+		"Staff: " << StaffProficiency << std::endl <<
+		"CURRENT EQUIPMENT" << std::endl <<
+		"Right Weapon: " << RightWeapon << std::endl <<
+		"Left Weapon: " << LeftWeapon << std::endl <<
+		"Helmet: " << Helmet << std::endl <<
+		"Armor: " << Armor << std::endl <<
+		"Gloves: " << Gloves << std::endl <<
+		"Accessory One: " << AccessoryOne << std::endl <<
+		"Accessory Two: " << AccessoryTwo << std::endl;
+
+
+}
+//------------------------------------------------------------------

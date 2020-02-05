@@ -6,12 +6,8 @@
 
 int main()
 {
-	std::cout << "Hello world\n";
-	const std::string WORD = "shirt";
-
 	Entities::Survivor survivor;
-	//figure out how to call a function
-	std::cout << survivor.GetName();
+	survivor.GetCompleteStatus();
 
 	return 0;
 }

@@ -40,3 +40,7 @@ Characters:
 		Gloves:
 		Accessory One:
 		Accessory Two:
+Mechanics:
+	Combat:
+		On attacking, the damage dealt is determined by:
+			Physical -- (Strength + Weapon Strength) * (1 + Weapon Proficiency/100)

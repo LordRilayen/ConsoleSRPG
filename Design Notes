@@ -43,4 +43,13 @@ Characters:
 Mechanics:
 	Combat:
 		On attacking, the damage dealt is determined by:
-			Physical -- (Strength + Weapon Strength) * (1 + Weapon Proficiency/100)
+			Physical
+				--((Strength + Weapon Strength) * (1 + Weapon Proficiency/100)) - Target's Defense
+				--if Critical, + Critical Bonus
+				--if Elemental, a second round of damage is dealt
+					-- ((Personal Elemental Damage + Weapon Elemental Damage) * (1 + Weapon/Proficiency/100)) - Target's Elemental Resistance
+			Magical
+				--(((Intelligence + Weapon Intelligence) + (Spell Tier * Spell Level)) * (1 + Weapon Proficiency/100)) - Target's Resistance
+				--if Critical, + Critical Bonus
+				--if Elemental, a second round of damage is dealth
+				  -- (((Personal Elemental Damage + Spell Elemental Damage) + (Spell Tier * Spell Level)) * (1 + Weapon Proficiency/100)) - Target's Resistance

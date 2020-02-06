@@ -88,6 +88,7 @@ namespace Entities
 
 		//Practical functions--------------------------------
 		void GetCompleteStatus();
+		void AttackTarget(Entities::Survivor& target);
 		//---------------------------------------------------
 
 	private:
@@ -137,5 +138,7 @@ namespace Entities
 		std::string Gloves = "";
 		std::string AccessoryOne = "";
 		std::string AccessoryTwo = "";
+
+		int Crit(int CriticalChance, int DamageDealt);
 	};
 }

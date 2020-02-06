@@ -1,6 +1,8 @@
 #include "survivor.h"
 #include <string>
 #include <iostream>
+#include <cstdlib>
+#include <time.h>
 
 //Getters and Setters------------------------------------------------
 std::string Entities::Survivor::GetName()
@@ -339,5 +341,30 @@ void Entities::Survivor::GetCompleteStatus()
 		"Accessory Two: " << AccessoryTwo << std::endl;
 
 
+}
+
+void Entities::Survivor::AttackTarget(Entities::Survivor& PTarget)
+{
+	//TODO:create weapon classes
+	//weapon strength set to 3/weapon set to sword until I create actual weapon classes
+	int PhysicalDamageDealt = ((Strength + 3) * (1 + SwordProficiency / 100)) - PTarget.GetDefense();
+	PhysicalDamageDealt = Crit(PTarget.GetCriticalChance(), PhysicalDamageDealt);
+	//elemental damage calculation here
+
+	PTarget.SetCurrentHealthPoints(PTarget.GetCurrentHealthPoints() - PhysicalDamageDealt);
+	std::cout << Name << " attacked " << PTarget.GetName() << " for " << PhysicalDamageDealt << "." << std::endl;
+	std::cout << PTarget.GetName() << " HP: " << PTarget.GetCurrentHealthPoints() << "/" << PTarget.GetMaxHealthPoints() << std::endl;
+
+}
+
+int Entities::Survivor::Crit(int PCriticalChance, int PDamageDealt)
+{
+	srand(time(NULL));
+	if ((rand() % 100 + 1) <= PCriticalChance)
+	{
+		PDamageDealt += CriticalBonus;
+		std::cout << "CRIT!" << std::endl;
+	}
+	return PDamageDealt;
 }
 //------------------------------------------------------------------

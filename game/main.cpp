@@ -2,6 +2,8 @@
 #include <iostream>
 
 #include "../entities/Survivor.h"
+#include "../loot/Item.h"
+#include "../loot/Weapon.h"
 
 
 int main()
@@ -13,17 +15,11 @@ int main()
 
 	Roxas.AttackTarget(Vanitas);
 
-	/*Roxas.GetCompleteStatus();
-	std::cout << " " << std::endl;
-	Vanitas.GetCompleteStatus();*/
+	Loot::Item Potion;
+	Loot::Weapon Sword;
 
-
-	/*int test = (1 + 3) * 1.01;
-	float test2 = (1 + 3) * 1.01;
-
-	std::cout << std::endl;
-	std::cout << test << std::endl;
-	std::cout << test2 << std::endl;*/
+	std::cout << Potion.GetAccuracy() << std::endl;
+	std::cout << Sword.GetAccuracy() << std::endl;
 
 	return 0;
 }

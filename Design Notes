@@ -44,7 +44,7 @@ Mechanics:
 	Combat:
 		On attacking, the damage dealt is determined by:
 			Physical
-				--((Strength + Weapon Strength) * (1 + Weapon Proficiency/100)) - Target's Defense
+				--(((Strength + Weapon Strength) + (Weapon Tier * Weapon Level))* (1 + Weapon Proficiency/100)) - Target's Defense
 				--if Critical, + Critical Bonus
 				--if Elemental, a second round of damage is dealt
 					-- ((Personal Elemental Damage + Weapon Elemental Damage) * (1 + Weapon/Proficiency/100)) - Target's Elemental Resistance

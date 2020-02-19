@@ -4,5 +4,5 @@
 
 namespace Loot
 {
-	class Weapon: public Item {	};
+	class Consumable : public Item { };
 }

@@ -1,4 +1,4 @@
-#include "survivor.h"
+#include "Survivor.h"
 #include <string>
 #include <iostream>
 #include <cstdlib>

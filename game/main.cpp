@@ -2,6 +2,8 @@
 #include <iostream>
 
 #include "../entities/Survivor.h"
+#include "../loot/Helmet.h"
+#include "../loot/Axe.h"
 
 
 int main()
@@ -13,17 +15,11 @@ int main()
 
 	Roxas.AttackTarget(Vanitas);
 
-	/*Roxas.GetCompleteStatus();
-	std::cout << " " << std::endl;
-	Vanitas.GetCompleteStatus();*/
+	Loot::Helmet Helmet;
+	Loot::Axe Axe;
 
-
-	/*int test = (1 + 3) * 1.01;
-	float test2 = (1 + 3) * 1.01;
-
-	std::cout << std::endl;
-	std::cout << test << std::endl;
-	std::cout << test2 << std::endl;*/
+	std::cout << Helmet.GetAccuracy() << std::endl;
+	std::cout << Axe.GetAccuracy() << std::endl;
 
 	return 0;
 }

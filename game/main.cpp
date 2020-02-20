@@ -4,22 +4,14 @@
 #include "../entities/Survivor.h"
 #include "../loot/Helmet.h"
 #include "../loot/Axe.h"
+#include "../generators/MapGenerator.h"
 
 
 int main()
 {
-	Entities::Survivor Roxas;
-	Entities::Survivor Vanitas;
-	Vanitas.SetName("Vanitas");
-	Vanitas.SetCriticalChance(50);
+	Generators::MapGenerator MapGenerator;
 
-	Roxas.AttackTarget(Vanitas);
-
-	Loot::Helmet Helmet;
-	Loot::Axe Axe;
-
-	std::cout << Helmet.GetAccuracy() << std::endl;
-	std::cout << Axe.GetAccuracy() << std::endl;
+	MapGenerator.DrawMap();
 
 	return 0;
 }

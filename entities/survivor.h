@@ -94,6 +94,10 @@ namespace Entities
 	private:
 		std::string Name = "Roxas";
 		std::string Class = "Survivor";
+		
+		//The symbol to be placed on the game map to represent this character
+		std::string Symbol = "s";
+		std::string Affiliation;
 
 		//Basic stats
 		int Level = 1;

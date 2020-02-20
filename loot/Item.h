@@ -46,20 +46,20 @@ namespace Loot
 		std::string Name = "Default";
 
 		//Basic stats
-		int Level = 1;
-		int Tier = 0;
-		int HealthPoints = 0;
-		int ManaPoints = 0;
-		int TotalExperience = 0;
-		int NeededExperience = 15;
-		int Strength = 0;
-		int Defense = 0;
-		int Intelligence = 0;
-		int Resistance = 0;
+		int Level;
+		int Tier;
+		int HealthPoints;
+		int ManaPoints;
+		int TotalExperience;
+		int NeededExperience;
+		int Strength;
+		int Defense;
+		int Intelligence;
+		int Resistance;
 		int Accuracy = 0;
-		int Speed = 0;
-		int Movement = 0;
-		int CriticalChance = 0;
-		int CriticalBonus = 0;
+		int Speed;
+		int Movement;
+		int CriticalChance;
+		int CriticalBonus;
 	};
 }

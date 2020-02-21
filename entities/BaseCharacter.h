@@ -4,7 +4,7 @@
 
 namespace Entities
 {
-	class Survivor
+	class BaseCharacter
 	{
 	public:
 		//Getters and Setters-------------------------------------
@@ -12,6 +12,10 @@ namespace Entities
 		void SetName(std::string Name);
 		std::string GetClass();
 		void SetClass(std::string Class);
+		std::string GetSymbol();
+		void SetSymbol(std::string Symbol);
+		std::string GetAffiliation();
+		void SetAffiliation(std::string Affiliation);
 
 		int GetLevel();
 		void SetLevel(int Lvl);
@@ -84,16 +88,22 @@ namespace Entities
 		void SetAccessoryOne(std::string Acs1);
 		std::string GetAccessoryTwo();
 		void SetAccessoryTwo(std::string Acs2);
+
+		int GetXPosition();
+		void SetXPosition(int PXPosition);
+		int GetYPosition();
+		void SetYPosition(int PYPosition);
 		//---------------------------------------------------
 
 		//Practical functions--------------------------------
 		void GetCompleteStatus();
-		void AttackTarget(Entities::Survivor& target);
+		void AttackTarget(Entities::BaseCharacter& target);
+		int Crit(int CriticalChance, int DamageDealt);
 		//---------------------------------------------------
 
 	private:
-		std::string Name = "Roxas";
-		std::string Class = "Survivor";
+		std::string Name = "Replica";
+		std::string Class = "BaseCharacter";
 		
 		//The symbol to be placed on the game map to represent this character
 		std::string Symbol = "s";
@@ -143,6 +153,7 @@ namespace Entities
 		std::string AccessoryOne = "";
 		std::string AccessoryTwo = "";
 
-		int Crit(int CriticalChance, int DamageDealt);
+		int XPosition = 0;
+		int YPosition = 0;
 	};
 }

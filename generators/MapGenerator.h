@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
+
+#include "../entities/BaseCharacter.h"
 
 namespace Generators
 {
@@ -8,9 +11,11 @@ namespace Generators
 	{
 	public:
 		std::string GetMapBorder();
+		std::string GetMapEdge();
 
-		std::string DrawMap();
+		std::string DrawMap(std::vector<Entities::BaseCharacter> PDeployedCharacters);
 	private:
-		const std::string MapBorder = "==================================================================================================";
+		const std::string MapBorder = "======================================================================================================\n";
+		const std::string MapEdge = "  ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----\n";
 	};
 }

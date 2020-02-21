@@ -1,25 +1,22 @@
 #include <string>
 #include <iostream>
+#include <vector>
 
-#include "../entities/Survivor.h"
+#include "../entities/BaseCharacter.h"
 #include "../loot/Helmet.h"
 #include "../loot/Axe.h"
+#include "../generators/MapGenerator.h"
 
 
 int main()
 {
-	Entities::Survivor Roxas;
-	Entities::Survivor Vanitas;
-	Vanitas.SetName("Vanitas");
-	Vanitas.SetCriticalChance(50);
+	Generators::MapGenerator MapGenerator;
+	Entities::BaseCharacter Roxas;
 
-	Roxas.AttackTarget(Vanitas);
+	std::vector<Entities::BaseCharacter> DeployedCharacters;
+	DeployedCharacters.push_back(Roxas);
 
-	Loot::Helmet Helmet;
-	Loot::Axe Axe;
-
-	std::cout << Helmet.GetAccuracy() << std::endl;
-	std::cout << Axe.GetAccuracy() << std::endl;
+	std::cout << MapGenerator.DrawMap(DeployedCharacters);
 
 	return 0;
 }

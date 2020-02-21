@@ -1,2 +1,2 @@
 #Compile command:
-#	cl ../game/main.cpp ../entities/Survivor.cpp ../loot/Item.cpp ../loot/Weapon.cpp
+#	cl ../game/main.cpp ../entities/BaseCharacter.cpp ../loot/Item.cpp ../generators/MapGenerator.cpp

@@ -40,6 +40,13 @@ Characters:
 		Gloves:
 		Accessory One:
 		Accessory Two:
+	Character markers
+		Characters have a symbol (designated by their class), which is displayed on the map. It is capitalized when the character is active. These symbols are:
+			-Survivor: s or S
+		Characters have an affiliation, to tell at a glance if they are a friend or foe
+			-Player controlled: P
+			-Enemy controlled: E
+
 Mechanics:
 	Combat:
 		On attacking, the damage dealt is determined by:

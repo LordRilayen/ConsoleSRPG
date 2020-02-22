@@ -13,10 +13,5 @@ int main()
 	Generators::MapGenerator MapGenerator;
 	Entities::BaseCharacter Roxas;
 
-	std::vector<Entities::BaseCharacter> DeployedCharacters;
-	DeployedCharacters.push_back(Roxas);
-
-	std::cout << MapGenerator.DrawMap(DeployedCharacters);
-
 	return 0;
 }

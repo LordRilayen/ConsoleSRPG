@@ -41,7 +41,12 @@ std::string Generators::MapGenerator::DrawMap(Geography::Map PMap)
 
 	for (auto i = PMap.GetSquareVector().begin(); i != PMap.GetSquareVector().end(); i++)
 	{
-		PMap.GetSquareVector();
+		std::cout << *i.g << std::endl;
+		/*int CurrentX = PMap.GetSquareVector().at(*i).GetXPosition();
+		int CurrentY = PMap.GetSquareVector().at(i*).GetYPosition();
+		std::cout << "(" << CurrentX << "," << CurrentY << ")" << std::endl;*/
+
+		//CURRENT TASK: FIGURING OUT HOW TO ACCESS THE INDEX OF THE ITERATOR TO DETERMINE WHEN TO DROP TO THE NEXT LINE DRAWING SQUARES--THE CODE CURRENTLY HAS COMPILER ERRORS
 	}
 	Map += GetMapBorder();
 	return Map;

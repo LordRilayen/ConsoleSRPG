@@ -16,7 +16,7 @@ std::string Generators::MapGenerator::GetMapEdge()
 	return MapEdge;
 }
 
-std::string Generators::MapGenerator::DrawMap(Geography::Map PMap)
+std::string Generators::MapGenerator::DrawMap(Geography::Map& PMap)
 {
 
 	//draw the map
@@ -39,14 +39,18 @@ std::string Generators::MapGenerator::DrawMap(Geography::Map PMap)
 		row++;
 	}*/
 
+	int index = 0;
+
+	std::cout << PMap.GetSquareVector().size() << std::endl;
+
 	for (auto i = PMap.GetSquareVector().begin(); i != PMap.GetSquareVector().end(); i++)
 	{
-		std::cout << *i.g << std::endl;
-		/*int CurrentX = PMap.GetSquareVector().at(*i).GetXPosition();
-		int CurrentY = PMap.GetSquareVector().at(i*).GetYPosition();
-		std::cout << "(" << CurrentX << "," << CurrentY << ")" << std::endl;*/
+		int CurrentX = PMap.GetSquareVector().at(index).GetXPosition();
+		int CurrentY = PMap.GetSquareVector().at(index).GetYPosition();
+		std::cout << "(" << CurrentX << "," << CurrentY << ")" << std::endl;
 
-		//CURRENT TASK: FIGURING OUT HOW TO ACCESS THE INDEX OF THE ITERATOR TO DETERMINE WHEN TO DROP TO THE NEXT LINE DRAWING SQUARES--THE CODE CURRENTLY HAS COMPILER ERRORS
+		//I've got a vector of MapSquares with set, accessible positions, now on to drawing them all based on their positions
+		index++;
 	}
 	Map += GetMapBorder();
 	return Map;

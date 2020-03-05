@@ -15,11 +15,11 @@ namespace Geography
 		void SetWidth(int PWidth);
 		int GetHeight();
 		void SetHeight(int PHeight);
-		std::vector<Geography::MapSquare> GetSquareVector();
-		void SetSquareVector(std::vector<Geography::MapSquare> PSquareVector);
+		std::vector<Geography::MapSquare>& GetSquareVector();
+		void SetSquareVector(std::vector<Geography::MapSquare>& PSquareVector);
 	private:
 		int Width;
 		int Height;
-		std::vector<Geography::MapSquare> SquareVector = {};
+		std::vector<Geography::MapSquare> SquareVector;
 	};
 }

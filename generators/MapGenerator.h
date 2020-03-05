@@ -13,7 +13,7 @@ namespace Generators
 		std::string GetMapBorder();
 		std::string GetMapEdge();
 
-		std::string DrawMap(Geography::Map PMap);
+		std::string DrawMap(Geography::Map& PMap);
 	private:
 		const std::string MapBorder = "======================================================================================================\n";
 		const std::string MapEdge = "  ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----\n";

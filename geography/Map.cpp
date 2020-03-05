@@ -21,11 +21,11 @@ void Geography::Map::SetHeight(int PHeight)
 {
 	Height = PHeight;
 }
-std::vector<Geography::MapSquare> Geography::Map::GetSquareVector()
+std::vector<Geography::MapSquare>& Geography::Map::GetSquareVector()
 {
 	return SquareVector;
 }
-void Geography::Map::SetSquareVector(std::vector<Geography::MapSquare> PSquareVector)
+void Geography::Map::SetSquareVector(std::vector<Geography::MapSquare>& PSquareVector)
 {
 	SquareVector = PSquareVector;
 }

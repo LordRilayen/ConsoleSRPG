@@ -20,7 +20,7 @@ std::string Generators::MapGenerator::DrawMap(Geography::Map& PMap)
 {
 
 	//draw the map
-	std::string Map = GetMapBorder();
+	std::string MapString = GetMapBorder();
 
 	/*Map += GetMapEdge();
 	int row = 0;
@@ -40,18 +40,35 @@ std::string Generators::MapGenerator::DrawMap(Geography::Map& PMap)
 	}*/
 
 	int index = 0;
-
-	std::cout << PMap.GetSquareVector().size() << std::endl;
-
 	for (auto i = PMap.GetSquareVector().begin(); i != PMap.GetSquareVector().end(); i++)
 	{
-		int CurrentX = PMap.GetSquareVector().at(index).GetXPosition();
-		int CurrentY = PMap.GetSquareVector().at(index).GetYPosition();
-		std::cout << "(" << CurrentX << "," << CurrentY << ")" << std::endl;
+		Geography::MapSquare CurrentSquare = PMap.GetSquareVector().at(index);
+		int CurrentX = CurrentSquare.GetXPosition();
+		int CurrentY = CurrentSquare.GetYPosition();
+		Entities::BaseCharacter CurrentOccupant = CurrentSquare.GetOccupant();
 
-		//I've got a vector of MapSquares with set, accessible positions, now on to drawing them all based on their positions
+		//is this a new row?
+		if (CurrentX == 0)
+		{
+			MapString += "{|";
+		}
+		else
+		{
+			MapString += "|";
+		}
+
+		//is the square occupied?
+		if (CurrentOccupant != nullptr)
+		{
+			MapString += " " + CurrentOccupant.GetSymbol() + CurrentOccupant.GetAffiliation() + " ";
+		}
+		else
+		{
+			MapString += "    ";
+		}
+
 		index++;
 	}
-	Map += GetMapBorder();
-	return Map;
+	MapString += GetMapBorder();
+	return MapString;
 }

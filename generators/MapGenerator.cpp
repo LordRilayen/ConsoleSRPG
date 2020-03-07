@@ -20,24 +20,8 @@ std::string Generators::MapGenerator::DrawMap(Geography::Map& PMap)
 {
 
 	//draw the map
-	std::string MapString = GetMapBorder();
-
-	/*Map += GetMapEdge();
-	int row = 0;
-	int column = 0;
-	while (row < 20)
-	{
-		Map += "{|";
-		while (column < 20)
-		{
-			Map += "    |";
-			column++;
-		}
-		column = 0;
-		Map += "}\n";
-		Map += GetMapEdge();
-		row++;
-	}*/
+	std::string MapString = "";
+	DrawBorder(PMap.GetWidth(), MapString, GetMapBorder());
 
 	int index = 0;
 	for (auto i = PMap.GetSquareVector().begin(); i != PMap.GetSquareVector().end(); i++)
@@ -58,7 +42,7 @@ std::string Generators::MapGenerator::DrawMap(Geography::Map& PMap)
 		}
 
 		//is the square occupied?
-		if (CurrentOccupant != nullptr)
+		if (!CurrentOccupant.GetIsPlaceholder())
 		{
 			MapString += " " + CurrentOccupant.GetSymbol() + CurrentOccupant.GetAffiliation() + " ";
 		}
@@ -67,8 +51,32 @@ std::string Generators::MapGenerator::DrawMap(Geography::Map& PMap)
 			MapString += "    ";
 		}
 
+		//are you at the end of the row?
+		if (CurrentX == (PMap.GetWidth() - 1))
+		{
+			MapString += "}\n";
+			DrawBorder(PMap.GetWidth(), MapString, GetMapEdge());
+		}
+
 		index++;
 	}
-	MapString += GetMapBorder();
+	DrawBorder(PMap.GetWidth(), MapString, GetMapBorder());
 	return MapString;
+}
+
+void Generators::MapGenerator::DrawBorder(int PWidth, std::string& PMapString, std::string PBorderType)
+{
+	if (PBorderType == GetMapBorder())
+	{
+		PMapString += "==";
+	}
+	else
+	{
+		PMapString += "  ";
+	}
+	for (int i = 0; i < PWidth; i++)
+	{
+		PMapString += PBorderType;
+	}
+	PMapString += "\n";
 }

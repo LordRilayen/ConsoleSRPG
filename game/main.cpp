@@ -7,10 +7,27 @@
 #include "../loot/Axe.h"
 #include "../generators/MapGenerator.h"
 
+//some private testing functions--delete later as they become unnecessary
+void setUpAndTestAMap();
+
 
 int main()
 {
+	setUpAndTestAMap();
+
+	return 0;
+}
+
+void setUpAndTestAMap()
+{
 	Geography::Map Map;
+	Generators::MapGenerator MapGenerator;
+	Entities::BaseCharacter Roxas;
+	Roxas.SetIsPlaceholder(false);
+	Entities::BaseCharacter Vanitas;
+	Vanitas.SetIsPlaceholder(false);
+	Vanitas.SetAffiliation("E");
+
 	Map.SetHeight(5);
 	Map.SetWidth(5);
 
@@ -32,6 +49,7 @@ int main()
 	Geography::MapSquare Square6;
 	Square6.SetXPosition(0);
 	Square6.SetYPosition(1);
+	Square6.SetOccupant(Roxas);
 	Geography::MapSquare Square7;
 	Square7.SetXPosition(1);
 	Square7.SetYPosition(1);
@@ -83,6 +101,7 @@ int main()
 	Geography::MapSquare Square23;
 	Square23.SetXPosition(2);
 	Square23.SetYPosition(4);
+	Square23.SetOccupant(Vanitas);
 	Geography::MapSquare Square24;
 	Square24.SetXPosition(3);
 	Square24.SetYPosition(4);
@@ -116,12 +135,7 @@ int main()
 	Map.GetSquareVector().push_back(Square24);
 	Map.GetSquareVector().push_back(Square25);
 
-	Generators::MapGenerator MapGenerator;
-	Entities::BaseCharacter Roxas;
-
-	MapGenerator.DrawMap(Map);
+	std::cout << MapGenerator.DrawMap(Map) << std::endl;
 
 	std::cout << "It didn't explode" << std::endl;
-
-	return 0;
 }

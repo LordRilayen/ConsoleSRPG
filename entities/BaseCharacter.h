@@ -93,6 +93,8 @@ namespace Entities
 		void SetXPosition(int PXPosition);
 		int GetYPosition();
 		void SetYPosition(int PYPosition);
+		bool GetIsPlaceholder();
+		void SetIsPlaceholder(bool PIsPlaceholder);
 		//---------------------------------------------------
 
 		//Practical functions--------------------------------
@@ -153,7 +155,9 @@ namespace Entities
 		std::string AccessoryOne = "";
 		std::string AccessoryTwo = "";
 
+		//Technical
 		int XPosition = 0;
 		int YPosition = 0;
+		bool IsPlaceholder = true;
 	};
 }

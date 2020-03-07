@@ -328,6 +328,14 @@ void Entities::BaseCharacter::SetYPosition(int PYPosition)
 {
 	YPosition = PYPosition;
 }
+bool Entities::BaseCharacter::GetIsPlaceholder()
+{
+	return IsPlaceholder;
+}
+void Entities::BaseCharacter::SetIsPlaceholder(bool PIsPlaceholder)
+{
+	IsPlaceholder = PIsPlaceholder;
+}
 //------------------------------------------------------------------
 
 //Practical functions-----------------------------------------------

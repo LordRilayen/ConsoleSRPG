@@ -3,6 +3,8 @@
 #include <vector>
 
 #include "MapGenerator.h"
+#include "../geography/Map.h"
+#include "../geography/MapSquare.h"
 #include "../entities/BaseCharacter.h"
 
 std::string Generators::MapGenerator::GetMapBorder()
@@ -14,27 +16,67 @@ std::string Generators::MapGenerator::GetMapEdge()
 	return MapEdge;
 }
 
-std::string Generators::MapGenerator::DrawMap(std::vector<Entities::BaseCharacter> PDeployedCharacters)
+std::string Generators::MapGenerator::DrawMap(Geography::Map& PMap)
 {
 
 	//draw the map
-	std::string Map = GetMapBorder() + GetMapEdge();
+	std::string MapString = "";
+	DrawBorder(PMap.GetWidth(), MapString, GetMapBorder());
 
-	int row = 0;
-	int column = 0;
-	while (row < 20)
+	int index = 0;
+	for (auto i = PMap.GetSquareVector().begin(); i != PMap.GetSquareVector().end(); i++)
 	{
-		Map += "{|";
-		while (column < 20)
+		Geography::MapSquare CurrentSquare = PMap.GetSquareVector().at(index);
+		int CurrentX = CurrentSquare.GetXPosition();
+		int CurrentY = CurrentSquare.GetYPosition();
+		Entities::BaseCharacter CurrentOccupant = CurrentSquare.GetOccupant();
+
+		//is this a new row?
+		if (CurrentX == 0)
 		{
-			Map += "    |";
-			column++;
+			MapString += "{|";
 		}
-		column = 0;
-		Map += "}\n";
-		Map += GetMapEdge();
-		row++;
+		else
+		{
+			MapString += "|";
+		}
+
+		//is the square occupied?
+		if (!CurrentOccupant.GetIsPlaceholder())
+		{
+			MapString += " " + CurrentOccupant.GetSymbol() + CurrentOccupant.GetAffiliation() + " ";
+		}
+		else
+		{
+			MapString += "    ";
+		}
+
+		//are you at the end of the row?
+		if (CurrentX == (PMap.GetWidth() - 1))
+		{
+			MapString += "}\n";
+			DrawBorder(PMap.GetWidth(), MapString, GetMapEdge());
+		}
+
+		index++;
 	}
-	Map += GetMapBorder();
-	return Map;
+	DrawBorder(PMap.GetWidth(), MapString, GetMapBorder());
+	return MapString;
+}
+
+void Generators::MapGenerator::DrawBorder(int PWidth, std::string& PMapString, std::string PBorderType)
+{
+	if (PBorderType == GetMapBorder())
+	{
+		PMapString += "==";
+	}
+	else
+	{
+		PMapString += "  ";
+	}
+	for (int i = 0; i < PWidth; i++)
+	{
+		PMapString += PBorderType;
+	}
+	PMapString += "\n";
 }

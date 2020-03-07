@@ -13,7 +13,10 @@ void setUpAndTestAMap();
 
 int main()
 {
-	setUpAndTestAMap();
+	std::string Test = "";
+	std::cout << "Type something: ";
+	std::cin >> Test;
+	std::cout << Test;
 
 	return 0;
 }

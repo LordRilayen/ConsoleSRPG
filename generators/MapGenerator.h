@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include "../entities/BaseCharacter.h"
+#include "../geography/Map.h"
 
 namespace Generators
 {
@@ -13,9 +13,11 @@ namespace Generators
 		std::string GetMapBorder();
 		std::string GetMapEdge();
 
-		std::string DrawMap(std::vector<Entities::BaseCharacter> PDeployedCharacters);
+		std::string DrawMap(Geography::Map& PMap);
 	private:
-		const std::string MapBorder = "======================================================================================================\n";
-		const std::string MapEdge = "  ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----\n";
+		const std::string MapBorder = "=====";
+		const std::string MapEdge = "---- ";
+
+		void DrawBorder(int PWidth, std::string& PMapString, std::string PBorderType);
 	};
 }

@@ -16,10 +16,10 @@ std::string Generators::MapGenerator::GetMapEdge()
 	return MapEdge;
 }
 
-std::string Generators::MapGenerator::DrawMap(Geography::Map& PMap)
+std::string Generators::MapGenerator::BuildMap(Geography::Map& PMap)
 {
 
-	//draw the map
+	//build the map
 	std::string MapString = "";
 	DrawBorder(PMap.GetWidth(), MapString, GetMapBorder());
 

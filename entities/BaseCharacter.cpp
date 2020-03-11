@@ -5,6 +5,14 @@
 #include <time.h>
 
 //Getters and Setters------------------------------------------------
+int Entities::BaseCharacter::GetCreationId()
+{
+	return CreationId;
+}
+void Entities::BaseCharacter::SetCreationId(int PCreationId)
+{
+	CreationId = PCreationId;
+}
 std::string Entities::BaseCharacter::GetName()
 {
 	return Name;
@@ -335,6 +343,14 @@ bool Entities::BaseCharacter::GetIsPlaceholder()
 void Entities::BaseCharacter::SetIsPlaceholder(bool PIsPlaceholder)
 {
 	IsPlaceholder = PIsPlaceholder;
+}
+bool Entities::BaseCharacter::GetIsActive()
+{
+	return IsActive;
+}
+void Entities::BaseCharacter::SetIsActive(bool PIsActive)
+{
+	IsActive = PIsActive;
 }
 //------------------------------------------------------------------
 

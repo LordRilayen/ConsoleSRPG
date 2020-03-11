@@ -42,7 +42,7 @@ std::string Generators::MapGenerator::BuildMap(Geography::Map& PMap)
 		}
 
 		//is the square occupied?
-		if (!CurrentOccupant.GetIsPlaceholder())
+		if (CurrentOccupant.GetCreationId() == 0)
 		{
 			MapString += " " + CurrentOccupant.GetSymbol() + CurrentOccupant.GetAffiliation() + " ";
 		}

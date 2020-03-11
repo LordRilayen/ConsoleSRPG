@@ -33,12 +33,15 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 
 	std::cout << "Let's start with something basic.\n\n";
 
+	GameMap.CheckSquareLeft(GameMap.GetSquareVector().at(22));
+
 	while (PGame.GetIsGamePlaying())
 	{
 		std::cout << "It is your turn.\n\n";
 		std::cout << MapGenerator.BuildMap(GameMap) << std::endl;
 
 		//TODO:Use the Player character to begin moving Roxas around the board
+
 
 		//determine whether to end the game--maybe its own function later?
 		std::cout << "Are you done playing the game? y/n\n";

@@ -16,6 +16,9 @@ namespace Geography
 		void SetYPosition(int PYPosition);
 		Entities::BaseCharacter& GetOccupant();
 		void SetOccupant(Entities::BaseCharacter& POccupant);
+
+		//overloads
+		friend bool operator== (const Geography::MapSquare& PSquare1, const Geography::MapSquare& PSquare2);
 	private:
 		int XPosition;
 		int YPosition;

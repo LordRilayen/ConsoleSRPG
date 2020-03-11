@@ -27,3 +27,15 @@ void Geography::MapSquare::SetOccupant(Entities::BaseCharacter& POccupant)
 {
 	Occupant = POccupant;
 }
+
+//overloads
+bool Geography::operator== (const Geography::MapSquare& PSquare1, const Geography::MapSquare& PSquare2)
+{
+	if (PSquare1.XPosition == PSquare2.XPosition &&
+		PSquare1.YPosition == PSquare2.YPosition &&
+		PSquare1.GetOccupant().GetCreationId() == PSquare2.GetOccupant().GetCreationId())
+	{
+		return true;
+	}
+	return false;
+}

@@ -425,3 +425,14 @@ int Entities::BaseCharacter::Crit(int PCriticalChance, int PDamageDealt)
 	return PDamageDealt;
 }
 //------------------------------------------------------------------
+
+//Overloads---------------------------------------------------------
+bool Entities::operator== (const Entities::BaseCharacter& PCharacter1, const Entities::BaseCharacter& PCharacter2)
+{
+	if (PCharacter1.CreationId == PCharacter2.CreationId)
+	{
+		return true;
+	}
+	return false;
+}
+//------------------------------------------------------------------

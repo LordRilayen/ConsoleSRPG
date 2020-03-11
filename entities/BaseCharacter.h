@@ -107,6 +107,9 @@ namespace Entities
 		int Crit(int CriticalChance, int DamageDealt);
 		//---------------------------------------------------
 
+		//Overloads------------------------------------------
+		friend bool operator== (const Entities::BaseCharacter& PCharacter1, const Entities::BaseCharacter& PCharacter2);
+		//---------------------------------------------------
 	private:
 		std::string Name = "Replica";
 		std::string Class = "BaseCharacter";

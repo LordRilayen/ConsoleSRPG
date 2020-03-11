@@ -20,21 +20,37 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, Geography::MapSquare& P
 	Entities::BaseCharacter Character = PCharacterSquare.GetOccupant();
 	int CharacterMoveDistance = Character.GetMovement();
 
-	Entities::BaseCharacter TargetCharacter = PTargetSquare.GetOccupant();
+	//Entities::BaseCharacter TargetCharacter = PTargetSquare.GetOccupant();
 
-	int StartX = PCharacterSquare.GetXPosition();
-	int StartY = PCharacterSquare.GetYPosition();
-	int EndX = PTargetSquare.GetXPosition();
-	int EndY = PTargetSquare.GetYPosition();
+	//int StartX = PCharacterSquare.GetXPosition();
+	//int StartY = PCharacterSquare.GetYPosition();
+	//int EndX = PTargetSquare.GetXPosition();
+	//int EndY = PTargetSquare.GetYPosition();
+	//int XMovement = StartX - EndX;
+	//int YMovement = StartY - EndY;
 
-	//check that the movement is legal
-	if (std::abs(StartX - EndX) + std::abs(StartY - EndY) > CharacterMoveDistance ||
-		TargetCharacter.GetIsPlaceholder() == false)
-	{
-		std::string MovementFailedMessage = Character.GetName() + " cannot move more than " + std::to_string(CharacterMoveDistance) + ".";
-		std::cout << MovementFailedMessage;
-		return false;
-	}
+	////check that the movement is a legal distance
+	//if (std::abs(XMovement) + std::abs(YMovement) > CharacterMoveDistance ||
+	//	TargetCharacter.GetCreationId() == 0)
+	//{
+	//	std::string MovementFailedMessage = Character.GetName() + " cannot move more than " + std::to_string(CharacterMoveDistance) + ".";
+	//	std::cout << MovementFailedMessage;
+	//	return false;
+	//}
+
+	////attempt to move the character
+	//for (int i = CharacterMoveDistance; i > 0; i--)
+	//{
+	//	for (int j = std::abs(XMovement); j > 0; j--)
+	//	{
+	//		if (XMovement > 0)
+	//		{
+
+	//		}
+	//	}
+	//}
+
+
 
 	return true;
 }

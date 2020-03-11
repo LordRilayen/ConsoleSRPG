@@ -44,11 +44,11 @@ std::string Generators::MapGenerator::BuildMap(Geography::Map& PMap)
 		//is the square occupied?
 		if (CurrentOccupant.GetCreationId() == 0)
 		{
-			MapString += " " + CurrentOccupant.GetSymbol() + CurrentOccupant.GetAffiliation() + " ";
+			MapString += "    ";
 		}
 		else
 		{
-			MapString += "    ";
+			MapString += " " + CurrentOccupant.GetSymbol() + CurrentOccupant.GetAffiliation() + " ";
 		}
 
 		//are you at the end of the row?

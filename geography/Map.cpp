@@ -35,7 +35,7 @@ void Geography::Map::SetSquareVector(std::vector<Geography::MapSquare>& PSquareV
 }
 
 //Practical Funtions---------------------------------------------------------------
-bool Geography::Map::CheckSquareLeft(Geography::MapSquare& PMapSquare)
+Geography::MapSquare Geography::Map::CheckSquareLeft(Geography::MapSquare& PMapSquare)
 {
 	std::vector<Geography::MapSquare>::iterator It;
 	//find check that the square exists and, if it does, get its position
@@ -46,12 +46,12 @@ bool Geography::Map::CheckSquareLeft(Geography::MapSquare& PMapSquare)
 		if ((LeftSquare.GetXPosition() != (Width - 1)) &&
 			LeftSquare.GetOccupant().GetCreationId() == 0)
 		{
-			return true;
+			return LeftSquare;
 		}
 	}
-	return false;
+	return PMapSquare;
 }
-bool Geography::Map::CheckSquareRight(Geography::MapSquare& PMapSquare)
+Geography::MapSquare Geography::Map::CheckSquareRight(Geography::MapSquare& PMapSquare)
 {
 	std::vector<Geography::MapSquare>::iterator It;
 	//find check that the square exists and, if it does, get its position
@@ -62,12 +62,12 @@ bool Geography::Map::CheckSquareRight(Geography::MapSquare& PMapSquare)
 		if ((RightSquare.GetXPosition() != (0)) &&
 			RightSquare.GetOccupant().GetCreationId() == 0)
 		{
-			return true;
+			return RightSquare;
 		}
 	}
-	return false;
+	return PMapSquare;
 }
-bool Geography::Map::CheckSquareUp(Geography::MapSquare& PMapSquare)
+Geography::MapSquare Geography::Map::CheckSquareUp(Geography::MapSquare& PMapSquare)
 {
 	std::vector<Geography::MapSquare>::iterator It;
 	//find check that the square exists and, if it does, get its position
@@ -80,12 +80,12 @@ bool Geography::Map::CheckSquareUp(Geography::MapSquare& PMapSquare)
 			SquareUp.GetYPosition() == PMapSquare.GetYPosition() - 1 &&
 			SquareUp.GetOccupant().GetCreationId() == 0)
 		{
-			return true;
+			return SquareUp;
 		}
 	}
-	return false;
+	return PMapSquare;
 }
-bool Geography::Map::CheckSquareDown(Geography::MapSquare& PMapSquare)
+Geography::MapSquare Geography::Map::CheckSquareDown(Geography::MapSquare& PMapSquare)
 {
 	std::vector<Geography::MapSquare>::iterator It;
 	//find check that the square exists and, if it does, get its position
@@ -98,8 +98,8 @@ bool Geography::Map::CheckSquareDown(Geography::MapSquare& PMapSquare)
 			SquareDown.GetYPosition() == PMapSquare.GetYPosition() + 1 &&
 			SquareDown.GetOccupant().GetCreationId() == 0)
 		{
-			return true;
+			return SquareDown;
 		}
 	}
-	return false;
+	return PMapSquare;
 }

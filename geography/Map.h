@@ -20,10 +20,10 @@ namespace Geography
 		void SetSquareVector(std::vector<Geography::MapSquare>& PSquareVector);
 		
 		//Practical Functions-----------------------------------------------------------
-		bool CheckSquareLeft(Geography::MapSquare& PMapSquare);
-		bool CheckSquareRight(Geography::MapSquare& PMapSquare);
-		bool CheckSquareUp(Geography::MapSquare& PMapSquare);
-		bool CheckSquareDown(Geography::MapSquare& PMapSquare);
+		Geography::MapSquare CheckSquareLeft(Geography::MapSquare& PMapSquare);
+		Geography::MapSquare CheckSquareRight(Geography::MapSquare& PMapSquare);
+		Geography::MapSquare CheckSquareUp(Geography::MapSquare& PMapSquare);
+		Geography::MapSquare CheckSquareDown(Geography::MapSquare& PMapSquare);
 	private:
 		int Width;
 		int Height;

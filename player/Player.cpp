@@ -3,6 +3,8 @@
 #include <math.h>
 
 #include "Player.h"
+#include "../generators/MapGenerator.h"
+#include "../entities/BaseCharacter.h"
 
 //Getters and Setters---------------------------------------------------------
 std::vector<Entities::BaseCharacter>& Player::Player::GetCharacterList()
@@ -15,10 +17,15 @@ void Player::Player::SetCharacterList(std::vector<Entities::BaseCharacter>& PCha
 }
 
 //Practical Functions---------------------------------------------------------
-bool Player::Player::MoveCharacter(Geography::Map& PMap, Geography::MapSquare& PCharacterSquare, Geography::MapSquare& PTargetSquare)
+bool Player::Player::MoveCharacter(Geography::Map& PMap, int PMapPosition, Geography::MapSquare& PCharacterSquare)
 {
+	bool MoveCompleted = false;
 	Entities::BaseCharacter Character = PCharacterSquare.GetOccupant();
 	int CharacterMoveDistance = Character.GetMovement();
+	int OriginalX = PCharacterSquare.GetXPosition();
+	int OriginalY = PCharacterSquare.GetYPosition();
+
+	Generators::MapGenerator MapGenerator;
 
 	//Entities::BaseCharacter TargetCharacter = PTargetSquare.GetOccupant();
 
@@ -50,6 +57,60 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, Geography::MapSquare& P
 	//	}
 	//}
 
+	std::cout << "Use the W,A,S, or D keys to move. Type Back to cancel movement." << std::endl;
+	std::cout << "Please type one character per command, and then press enter." << std::endl;
+	std::string MoveCommand;
+
+	while (!MoveCompleted)
+	{
+		std::cout << Character.GetName() + " has " + std::to_string(CharacterMoveDistance) + " movement remaining.\n\n";
+
+		std::cin >> MoveCommand;
+
+		if (MoveCommand == "W" || "w")
+		{
+			Geography::MapSquare SquareUp = PMap.CheckSquareUp(PCharacterSquare);
+			
+			if (!(SquareUp == PCharacterSquare))
+			{
+				//TODO: OK next you've got to figure out why this won't draw the symbols in the new square
+				std::cout << "SquareUp contents: " + std::to_string(PCharacterSquare.GetOccupant().GetCreationId()) + std::to_string(PCharacterSquare.GetXPosition()) + std::to_string(PCharacterSquare.GetYPosition()) << std::endl;
+				SquareUp.SetOccupant(PCharacterSquare.GetOccupant());
+				std::cout << "SquareUp contents: " + std::to_string(SquareUp.GetOccupant().GetCreationId()) + std::to_string(SquareUp.GetXPosition()) + std::to_string(SquareUp.GetYPosition()) << std::endl;
+				PMap.GetSquareVector().at(PMapPosition) = SquareUp;
+				std::cout << "SquareUp contents: " + std::to_string(PMap.GetSquareVector().at(PMapPosition).GetOccupant().GetCreationId()) + std::to_string(PMap.GetSquareVector().at(PMapPosition).GetXPosition()) + std::to_string(PMap.GetSquareVector().at(PMapPosition).GetYPosition()) << std::endl;
+				//fill the old square with a character with CreationId 0
+				Entities::BaseCharacter Placeholder;
+				PCharacterSquare.SetOccupant(Placeholder);
+
+				std::cout << MapGenerator.BuildMap(PMap) << std::endl;
+			}
+		}
+		else if (MoveCommand == "A" || "a")
+		{
+			
+		}
+		else if (MoveCommand == "S" || "s")
+		{
+			
+		}
+		else if (MoveCommand == "D" || "d")
+		{
+			
+		}
+		else if (MoveCommand == "Back")
+		{
+
+		}
+		else
+		{
+			std::cout << "Please type one character (W,A,S, or D) per command, and then press enter." << std::endl;
+			
+		}
+		MoveCompleted = true;
+	}
+
+	std::cout << Character.GetName() + " has " + std::to_string(CharacterMoveDistance) + " movement remaining.";
 
 
 	return true;

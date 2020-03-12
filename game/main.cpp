@@ -14,7 +14,6 @@ int main()
 {
 	Game::GameLoop Game;
 	Game.PlayGame(Game);
-	
 
 	return 0;
 }

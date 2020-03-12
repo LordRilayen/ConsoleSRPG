@@ -38,21 +38,24 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 	Geography::Map GameMap = TestLevel.setUpAMap();//test setup
 	std::vector<Entities::BaseCharacter> CharacterVector = TestLevel.setUpCharacters();//test setup
 	GameMap.GetSquareVector().at(22).SetOccupant(CreateNewCharacterFromTemplate(CharacterVector.at(0)));//test setup
+	GameMap.GetSquareVector().at(22).GetOccupant().SetXPosition(GameMap.GetSquareVector().at(22).GetXPosition());
 	GameMap.GetSquareVector().at(2).SetOccupant(CreateNewCharacterFromTemplate(CharacterVector.at(1)));//test setup
+	GameMap.GetSquareVector().at(2).GetOccupant().SetXPosition(GameMap.GetSquareVector().at(2).GetXPosition());
 	GameMap.GetSquareVector().at(1).SetOccupant(CreateNewCharacterFromTemplate(CharacterVector.at(1)));//test setup
+	GameMap.GetSquareVector().at(1).GetOccupant().SetXPosition(GameMap.GetSquareVector().at(1).GetXPosition());
 
 	Player.GetCharacterList().push_back(CharacterVector.at(0));//test setup
 
 	std::cout << "Let's start with something basic.\n\n";
 
-	std::cout << GameMap.CheckSquareUp(GameMap.GetSquareVector().at(7)) << std::endl;
+	std::cout << std::to_string(GameMap.CheckSquareUp(GameMap.GetSquareVector().at(7)).GetXPosition()) << std::endl;
 
 	while (PGame.GetIsGamePlaying())
 	{
 		std::cout << "It is your turn.\n\n";
 		std::cout << MapGenerator.BuildMap(GameMap) << std::endl;
 
-		//TODO:Use the Player character to begin moving Roxas around the board
+		Player.MoveCharacter(GameMap, 22, GameMap.GetSquareVector().at(22));
 
 
 		//determine whether to end the game--maybe its own function later?

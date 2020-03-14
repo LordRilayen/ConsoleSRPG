@@ -14,7 +14,7 @@ namespace Geography
 		void SetXPosition(int PXPosition);
 		int GetYPosition();
 		void SetYPosition(int PYPosition);
-		Entities::BaseCharacter& GetOccupant();
+		Entities::BaseCharacter GetOccupant();
 		void SetOccupant(Entities::BaseCharacter& POccupant);
 
 		//overloads

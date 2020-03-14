@@ -115,8 +115,8 @@ namespace Entities
 		std::string Class = "BaseCharacter";
 		
 		//The symbol to be placed on the game map to represent this character
-		std::string Symbol = "s";
-		std::string Affiliation = "P";
+		std::string Symbol = " ";
+		std::string Affiliation = " ";
 
 		//Basic stats
 		int Level = 1;

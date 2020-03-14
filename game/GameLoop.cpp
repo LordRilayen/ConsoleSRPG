@@ -48,8 +48,6 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 
 	std::cout << "Let's start with something basic.\n\n";
 
-	std::cout << std::to_string(GameMap.CheckSquareUp(GameMap.GetSquareVector().at(7)).GetXPosition()) << std::endl;
-
 	while (PGame.GetIsGamePlaying())
 	{
 		std::cout << "It is your turn.\n\n";

@@ -67,12 +67,9 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, int PMapPosition, Geogr
 	Geography::MapSquare NewSquare;
 	Entities::BaseCharacter Placeholder;
 
-	std::cout << std::to_string(PCharacterSquare.GetOccupant().GetCreationId()) << std::endl;
-
 	while (!MoveCompleted)
 	{
 		std::cout << Character.GetName() + " has " + std::to_string(CharacterMoveDistance) + " movement remaining.\n\n";
-
 		std::cin >> MoveCommand;
 
 		if (MoveCommand == "W" || "w")
@@ -80,35 +77,19 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, int PMapPosition, Geogr
 			NewSquare = PMap.CheckSquareUp(PCharacterSquare);
 			if (!(NewSquare == PCharacterSquare))
 			{
-				std::cout << std::to_string(PMap.GetSquareVector().at(22).GetOccupant().GetCreationId()) << std::endl;
-				std::cout << PMap.GetSquareVector().at(22).GetOccupant().GetSymbol() << std::endl;
-				std::cout << PMap.GetSquareVector().at(22).GetOccupant().GetAffiliation() << std::endl;
-
 				NewSquare.SetOccupant(PCharacterSquare.GetOccupant());
 				//fill the old square with a character with CreationId 0
-				std::cout << std::to_string(Placeholder.GetCreationId()) << std::endl;
-				std::cout << Placeholder.GetSymbol() << std::endl;
-				std::cout << Placeholder.GetAffiliation() << std::endl;
 				PMap.GetSquareVector().at(PMapPosition).SetOccupant(Placeholder);
 				std::cout << "===================" << std::endl;
-				std::cout << std::to_string(PMapPosition) << std::endl;
-				std::cout << std::to_string(PMap.GetSquareVector().at(PMapPosition).GetOccupant().GetCreationId()) << std::endl;
-				std::cout << PMap.GetSquareVector().at(PMapPosition).GetOccupant().GetSymbol() << std::endl;
-				std::cout << PMap.GetSquareVector().at(PMapPosition).GetOccupant().GetAffiliation() << std::endl;
 				//place the new square in the correct position
 				PMap.GetSquareVector().at(PMapPosition - PMap.GetWidth()) = NewSquare;
 
 				std::cout << MapGenerator.BuildMap(PMap) << std::endl;
 
-				std::cout << std::to_string(PMap.GetSquareVector().at(22).GetOccupant().GetCreationId()) << std::endl;
-				std::cout << PMap.GetSquareVector().at(22).GetOccupant().GetSymbol() << std::endl;
-				std::cout << PMap.GetSquareVector().at(22).GetOccupant().GetAffiliation() << std::endl;
 				//update values to reflect new position
 				PMapPosition -= PMap.GetWidth();
 				PCharacterSquare = NewSquare;
 			}
-			//std::cout << std::to_string(PMapPosition) << std::endl;
-			//std::cout << std::to_string(PCharacterSquare.GetOccupant().GetCreationId()) << std::endl;
 		}
 		else if (MoveCommand == "A" || "a")
 		{

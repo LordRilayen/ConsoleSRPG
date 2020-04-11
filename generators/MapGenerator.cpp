@@ -45,12 +45,10 @@ std::string Generators::MapGenerator::BuildMap(Geography::Map& PMap)
 		if (CurrentOccupant.GetCreationId() == 0)
 		{
 			MapString += "    ";
-			std::cout << "Hi there" << std::endl;
 		}
 		else
 		{
 			MapString += " " + CurrentOccupant.GetSymbol() + CurrentOccupant.GetAffiliation() + " ";
-			std::cout << "Whoa there" << std::endl;
 		}
 
 		//are you at the end of the row?

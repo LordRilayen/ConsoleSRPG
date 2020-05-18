@@ -77,9 +77,22 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, int PMapPosition, Geogr
 			NewSquare = PMap.CheckSquareUp(PCharacterSquare);
 			if (!(NewSquare == PCharacterSquare))
 			{
+				std::cout << "PCharacterSquare Numbers:  " << std::endl;//DEBUGGING
+				std::cout << "PCharacterSquare CreationID:  " + std::to_string(PCharacterSquare.GetOccupant().GetCreationId()) << std::endl;//DEBUGGING
+				std::cout << "(" + std::to_string(PCharacterSquare.GetXPosition()) + ", " + std::to_string(PCharacterSquare.GetYPosition()) + ")" << std::endl;//DEBUGGING
+
+				std::cout << "PMapPosition: " + std::to_string(PMapPosition) << std::endl;
+				//std::cout << "======================" << std::endl;//DEBUGGING
+				//std::cout << "SquareBelow Numbers:  " << std::endl;//DEBUGGING
+				//std::cout << "SquareBelow CreationID:  " + std::to_string(PMap.GetSquareVector().at(PMapPosition - PMap.GetWidth()).GetOccupant().GetCreationId()) << std::endl;//DEBUGGING
+				//std::cout << "(" + std::to_string(PMap.GetSquareVector().at(PMapPosition + PMap.GetWidth()).GetXPosition()) + ", " + std::to_string(PMap.GetSquareVector().at(PMapPosition + PMap.GetWidth()).GetYPosition()) + ")" << std::endl;//DEBUGGING
+
 				NewSquare.SetOccupant(PCharacterSquare.GetOccupant());
 				//fill the old square with a character with CreationId 0
-				PMap.GetSquareVector().at(PMapPosition).SetOccupant(Placeholder);
+				//PMap.GetSquareVector().at(PMapPosition).SetOccupant(Placeholder);
+				PCharacterSquare.SetOccupant(Placeholder);
+				PCharacterSquare.SetXPosition(PMap.GetSquareVector().at(PMapPosition).GetXPosition());
+				PCharacterSquare.SetYPosition(PMap.GetSquareVector().at(PMapPosition).GetYPosition());
 				std::cout << "===================" << std::endl;
 				//place the new square in the correct position
 				PMap.GetSquareVector().at(PMapPosition - PMap.GetWidth()) = NewSquare;
@@ -89,6 +102,18 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, int PMapPosition, Geogr
 				//update values to reflect new position
 				PMapPosition -= PMap.GetWidth();
 				PCharacterSquare = NewSquare;
+
+				std::cout << "PCharacterSquare Numbers:  " << std::endl;
+				std::cout << "PCharacterSquare CreationID:  " + std::to_string(PCharacterSquare.GetOccupant().GetCreationId()) << std::endl;//DEBUGGING
+				std::cout << "(" + std::to_string(PCharacterSquare.GetXPosition()) + ", " + std::to_string(PCharacterSquare.GetYPosition()) + ")" << std::endl;
+
+				std::cout << "PMapPosition: " + std::to_string(PMapPosition) << std::endl;
+
+				std::cout << "======================" << std::endl;//DEBUGGING
+				std::cout << "SquareBelow Numbers:  " << std::endl;//DEBUGGING
+				std::cout << "SquareBelow CreationID:  " + std::to_string(PMap.GetSquareVector().at(PMapPosition - PMap.GetWidth()).GetOccupant().GetCreationId()) << std::endl;//DEBUGGING
+				std::cout << "(" + std::to_string(PMap.GetSquareVector().at(PMapPosition + PMap.GetWidth()).GetXPosition()) + ", " + std::to_string(PMap.GetSquareVector().at(PMapPosition + PMap.GetWidth()).GetYPosition()) + ")" << std::endl;//DEBUGGING
+
 			}
 		}
 		else if (MoveCommand == "A" || "a")
@@ -150,7 +175,7 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, int PMapPosition, Geogr
 			std::cout << "Please type one character (W,A,S, or D) per command, and then press enter." << std::endl;
 			
 		}
-		std::cout << "At the end of a loop" << std::endl;
+		std::cout << "At the end of a loop" << std::endl;//DEBUGGING
 	}
 
 	std::cout << Character.GetName() + " has " + std::to_string(CharacterMoveDistance) + " movement remaining.";

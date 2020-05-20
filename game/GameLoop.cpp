@@ -53,7 +53,8 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 		std::cout << "It is your turn.\n\n";
 		std::cout << MapGenerator.BuildMap(GameMap) << std::endl;
 
-		Player.MoveCharacter(GameMap, 22, GameMap.GetSquareVector().at(22));
+		/*Player.MoveCharacter(GameMap, 22, GameMap.GetSquareVector().at(22));*/
+		Player.MoveCharacter(GameMap, GameMap.GetSquareVector().at(22).GetOccupant());
 
 
 		//determine whether to end the game--maybe its own function later?

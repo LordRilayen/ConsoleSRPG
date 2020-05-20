@@ -7,6 +7,7 @@
 
 #include "Map.h"
 #include "MapSquare.h"
+#include "../entities/BaseCharacter.h"
 
 //Getters and Setters---------------------------------------------------------------
 int Geography::Map::GetWidth()
@@ -46,7 +47,7 @@ Geography::MapSquare Geography::Map::CheckSquareLeft(Geography::MapSquare& PMapS
 		if ((LeftSquare.GetXPosition() != (Width - 1)) &&
 			LeftSquare.GetOccupant().GetCreationId() == 0)
 		{
-			return LeftSquare;
+			return *std::prev(It);
 		}
 	}
 	return PMapSquare;
@@ -62,7 +63,7 @@ Geography::MapSquare Geography::Map::CheckSquareRight(Geography::MapSquare& PMap
 		if ((RightSquare.GetXPosition() != (0)) &&
 			RightSquare.GetOccupant().GetCreationId() == 0)
 		{
-			return RightSquare;
+			return *std::next(It);
 		}
 	}
 	return PMapSquare;
@@ -80,7 +81,7 @@ Geography::MapSquare Geography::Map::CheckSquareUp(Geography::MapSquare& PMapSqu
 			SquareUp.GetYPosition() == PMapSquare.GetYPosition() - 1 &&
 			SquareUp.GetOccupant().GetCreationId() == 0)
 		{
-			return SquareUp;
+			return *It;
 		}
 	}
 	return PMapSquare;
@@ -98,8 +99,121 @@ Geography::MapSquare Geography::Map::CheckSquareDown(Geography::MapSquare& PMapS
 			SquareDown.GetYPosition() == PMapSquare.GetYPosition() + 1 &&
 			SquareDown.GetOccupant().GetCreationId() == 0)
 		{
-			return SquareDown;
+			return *It;
 		}
 	}
 	return PMapSquare;
+}
+
+bool Geography::Map::MoveCharacterLeft(Entities::BaseCharacter& PCharacter)
+{
+	int count = 0;
+	for (auto& square : SquareVector)
+	{
+		if (square.GetOccupant() == PCharacter)
+		{
+			std::cout << "I found the character!" << std::endl;
+			if (!(CheckSquareLeft(square) == square))
+			{
+				std::cout << "The square to the left is open!" << std::endl;
+				SquareVector.at(count - 1).SetOccupant(square.GetOccupant());
+				Entities::BaseCharacter Placeholder;
+				SquareVector.at(count).SetOccupant(Placeholder);
+				break;
+			}
+			else
+			{
+				std::cout << "That move is not allowed." << std::endl;
+				return false;
+			}
+		}
+		count++;
+	}
+
+	std::cout << "I moved the character left!" << std::endl;
+	return true;
+}
+bool Geography::Map::MoveCharacterRight(Entities::BaseCharacter& PCharacter)
+{
+	int count = 0;
+	for (auto& square : SquareVector)
+	{
+		if (square.GetOccupant() == PCharacter)
+		{
+			std::cout << "I found the character!" << std::endl;
+			if (!(CheckSquareRight(square) == square))
+			{
+				std::cout << "The square to the right is open!" << std::endl;
+				SquareVector.at(count + 1).SetOccupant(square.GetOccupant());
+				Entities::BaseCharacter Placeholder;
+				SquareVector.at(count).SetOccupant(Placeholder);
+				break;
+			}
+			else
+			{
+				std::cout << "That move is not allowed." << std::endl;
+				return false;
+			}
+		}
+		count++;
+	}
+
+	std::cout << "I moved the character right!" << std::endl;
+	return true;
+}
+bool Geography::Map::MoveCharacterUp(Entities::BaseCharacter& PCharacter)
+{
+	int count = 0;
+	for (auto& square : SquareVector)
+	{
+		if(square.GetOccupant() == PCharacter)
+		{
+			std::cout << "I found the character!" << std::endl;
+			if (!(CheckSquareUp(square) == square))
+			{
+				std::cout << "The square above is open!" << std::endl;
+				SquareVector.at(count - Width).SetOccupant(square.GetOccupant());
+				Entities::BaseCharacter Placeholder;
+				SquareVector.at(count).SetOccupant(Placeholder);
+				break;
+			}
+			else
+			{
+				std::cout << "That move is not allowed." << std::endl;
+				return false;
+			}
+		}
+		count++;
+	}
+
+	std::cout << "I moved the character up!" << std::endl;
+	return true;
+}
+bool Geography::Map::MoveCharacterDown(Entities::BaseCharacter& PCharacter)
+{
+	int count = 0;
+	for (auto& square : SquareVector)
+	{
+		if (square.GetOccupant() == PCharacter)
+		{
+			std::cout << "I found the character!" << std::endl;
+			if (!(CheckSquareDown(square) == square))
+			{
+				std::cout << "The square down is open!" << std::endl;
+				SquareVector.at(count + Width).SetOccupant(square.GetOccupant());
+				Entities::BaseCharacter Placeholder;
+				SquareVector.at(count).SetOccupant(Placeholder);
+				break;
+			}
+			else
+			{
+				std::cout << "That move is not allowed." << std::endl;
+				return false;
+			}
+		}
+		count++;
+	}
+
+	std::cout << "I moved the character down!" << std::endl;
+	return true;
 }

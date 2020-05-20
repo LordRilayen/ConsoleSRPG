@@ -19,7 +19,7 @@ namespace Player
 
 		//Practical functions---------------------------------------------------------
 		//returns true if character moved successfully, otherwise false
-		bool MoveCharacter(Geography::Map& PMap, int PMapPosition, Geography::MapSquare& PCharacterSquare);
+		bool MoveCharacter(Geography::Map& PMap, Entities::BaseCharacter& PCharacter);
 	private:
 		std::vector<Entities::BaseCharacter> CharacterList;
 	};

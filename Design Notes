@@ -1,4 +1,8 @@
 Characters:
+	Implementation:
+		All characters have a CreationId that MUST be incremented upon creation and added to the Player's CharacterList; a BaseCharacter with a CreationId of 0 is considered to not exist, functions as a placeholder, and is considered equal
+		Two BaseCharacters are equal (by the == operator) if they have the same CreationId
+
 	All characters have the following stats (these are default starting values):
 		Name: "Roxas"
 		Class: "Survivor"
@@ -60,7 +64,7 @@ Mechanics:
 				--if Critical, + Critical Bonus
 				--if Elemental, a second round of damage is dealth
 				  -- (((Personal Elemental Damage + Spell Elemental Damage) + (Spell Tier * Spell Level)) * (1 + Weapon Proficiency/100)) - Target's Resistance
-					
+
 Inventory:
 	Items are organized (in code) into the following hierarchy:
 		Item

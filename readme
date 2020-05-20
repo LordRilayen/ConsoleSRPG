@@ -1,2 +1,2 @@
 #Compile command:
-#	cl ../game/main.cpp ../entities/BaseCharacter.cpp ../loot/Item.cpp ../generators/MapGenerator.cpp ../geography/MapSquare.cpp ../geography/Map.cpp
+#	cl ../game/main.cpp ../game/GameLoop.cpp ../entities/BaseCharacter.cpp ../loot/Item.cpp ../generators/MapGenerator.cpp ../geography/MapSquare.cpp ../geography/Map.cpp ../levels/TestFiveXFive.cpp ../player/Player.cpp

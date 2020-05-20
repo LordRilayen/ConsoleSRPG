@@ -81,7 +81,7 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, Entities::BaseCharacter
 			std::cout << "Please type one character (W,A,S, or D) per command, and then press enter." << std::endl;
 			
 		}
-		std::cout << "At the end of a loop" << std::endl;//DEBUGGING
+		std::cout << "At the end of a loop" << std::endl;
 		if (CharacterMoveDistance <= 0) {
 			MoveCompleted = true;
 		}

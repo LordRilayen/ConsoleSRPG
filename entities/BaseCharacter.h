@@ -8,6 +8,8 @@ namespace Entities
 	{
 	public:
 		//Getters and Setters-------------------------------------
+		int GetCreationId();
+		void SetCreationId(int PCreationId);
 		std::string GetName();
 		void SetName(std::string Name);
 		std::string GetClass();
@@ -95,6 +97,8 @@ namespace Entities
 		void SetYPosition(int PYPosition);
 		bool GetIsPlaceholder();
 		void SetIsPlaceholder(bool PIsPlaceholder);
+		bool GetIsActive();
+		void SetIsActive(bool PIsActive);
 		//---------------------------------------------------
 
 		//Practical functions--------------------------------
@@ -103,13 +107,16 @@ namespace Entities
 		int Crit(int CriticalChance, int DamageDealt);
 		//---------------------------------------------------
 
+		//Overloads------------------------------------------
+		friend bool operator== (const Entities::BaseCharacter& PCharacter1, const Entities::BaseCharacter& PCharacter2);
+		//---------------------------------------------------
 	private:
 		std::string Name = "Replica";
 		std::string Class = "BaseCharacter";
 		
 		//The symbol to be placed on the game map to represent this character
-		std::string Symbol = "s";
-		std::string Affiliation = "P";
+		std::string Symbol = " ";
+		std::string Affiliation = " ";
 
 		//Basic stats
 		int Level = 1;
@@ -156,8 +163,10 @@ namespace Entities
 		std::string AccessoryTwo = "";
 
 		//Technical
+		int CreationId = 0;
 		int XPosition = 0;
 		int YPosition = 0;
 		bool IsPlaceholder = true;
+		bool IsActive = false;
 	};
 }

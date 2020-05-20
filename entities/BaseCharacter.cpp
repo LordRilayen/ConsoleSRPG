@@ -5,6 +5,14 @@
 #include <time.h>
 
 //Getters and Setters------------------------------------------------
+int Entities::BaseCharacter::GetCreationId()
+{
+	return CreationId;
+}
+void Entities::BaseCharacter::SetCreationId(int PCreationId)
+{
+	CreationId = PCreationId;
+}
 std::string Entities::BaseCharacter::GetName()
 {
 	return Name;
@@ -336,6 +344,14 @@ void Entities::BaseCharacter::SetIsPlaceholder(bool PIsPlaceholder)
 {
 	IsPlaceholder = PIsPlaceholder;
 }
+bool Entities::BaseCharacter::GetIsActive()
+{
+	return IsActive;
+}
+void Entities::BaseCharacter::SetIsActive(bool PIsActive)
+{
+	IsActive = PIsActive;
+}
 //------------------------------------------------------------------
 
 //Practical functions-----------------------------------------------
@@ -407,5 +423,16 @@ int Entities::BaseCharacter::Crit(int PCriticalChance, int PDamageDealt)
 		std::cout << "CRIT!" << std::endl;
 	}
 	return PDamageDealt;
+}
+//------------------------------------------------------------------
+
+//Overloads---------------------------------------------------------
+bool Entities::operator== (const Entities::BaseCharacter& PCharacter1, const Entities::BaseCharacter& PCharacter2)
+{
+	if (PCharacter1.CreationId == PCharacter2.CreationId)
+	{
+		return true;
+	}
+	return false;
 }
 //------------------------------------------------------------------

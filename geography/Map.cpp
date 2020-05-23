@@ -129,11 +129,11 @@ bool Geography::Map::MoveCharacterLeft(Entities::BaseCharacter& PCharacter)
 	{
 		if (square.GetOccupant() == PCharacter)
 		{
-			std::cout << "I found the character!" << std::endl;
 			if (!(CheckSquareLeft(square) == square))
 			{
-				std::cout << "The square to the left is open!" << std::endl;
-				SquareVector.at(count - 1).SetOccupant(square.GetOccupant());
+				SquareVector.at(count - 1).SetOccupant(PCharacter);
+				PCharacter.SetXPosition(SquareVector.at(count - 1).GetXPosition());
+				PCharacter.SetYPosition(SquareVector.at(count - 1).GetYPosition());
 				Entities::BaseCharacter Placeholder;
 				SquareVector.at(count).SetOccupant(Placeholder);
 				break;
@@ -146,8 +146,6 @@ bool Geography::Map::MoveCharacterLeft(Entities::BaseCharacter& PCharacter)
 		}
 		count++;
 	}
-
-	std::cout << "I moved the character left!" << std::endl;
 	return true;
 }
 bool Geography::Map::MoveCharacterRight(Entities::BaseCharacter& PCharacter)
@@ -157,11 +155,11 @@ bool Geography::Map::MoveCharacterRight(Entities::BaseCharacter& PCharacter)
 	{
 		if (square.GetOccupant() == PCharacter)
 		{
-			std::cout << "I found the character!" << std::endl;
 			if (!(CheckSquareRight(square) == square))
 			{
-				std::cout << "The square to the right is open!" << std::endl;
-				SquareVector.at(count + 1).SetOccupant(square.GetOccupant());
+				SquareVector.at(count + 1).SetOccupant(PCharacter);
+				PCharacter.SetXPosition(SquareVector.at(count + 1).GetXPosition());
+				PCharacter.SetYPosition(SquareVector.at(count + 1).GetYPosition());
 				Entities::BaseCharacter Placeholder;
 				SquareVector.at(count).SetOccupant(Placeholder);
 				break;
@@ -174,8 +172,6 @@ bool Geography::Map::MoveCharacterRight(Entities::BaseCharacter& PCharacter)
 		}
 		count++;
 	}
-
-	std::cout << "I moved the character right!" << std::endl;
 	return true;
 }
 bool Geography::Map::MoveCharacterUp(Entities::BaseCharacter& PCharacter)
@@ -185,11 +181,11 @@ bool Geography::Map::MoveCharacterUp(Entities::BaseCharacter& PCharacter)
 	{
 		if(square.GetOccupant() == PCharacter)
 		{
-			std::cout << "I found the character!" << std::endl;
 			if (!(CheckSquareUp(square) == square))
 			{
-				std::cout << "The square above is open!" << std::endl;
-				SquareVector.at(count - Width).SetOccupant(square.GetOccupant());
+				SquareVector.at(count - Width).SetOccupant(PCharacter);
+				PCharacter.SetXPosition(SquareVector.at(count - Width).GetXPosition());
+				PCharacter.SetYPosition(SquareVector.at(count - Width).GetYPosition());
 				Entities::BaseCharacter Placeholder;
 				SquareVector.at(count).SetOccupant(Placeholder);
 				break;
@@ -202,8 +198,6 @@ bool Geography::Map::MoveCharacterUp(Entities::BaseCharacter& PCharacter)
 		}
 		count++;
 	}
-
-	std::cout << "I moved the character up!" << std::endl;
 	return true;
 }
 bool Geography::Map::MoveCharacterDown(Entities::BaseCharacter& PCharacter)
@@ -213,11 +207,11 @@ bool Geography::Map::MoveCharacterDown(Entities::BaseCharacter& PCharacter)
 	{
 		if (square.GetOccupant() == PCharacter)
 		{
-			std::cout << "I found the character!" << std::endl;
 			if (!(CheckSquareDown(square) == square))
 			{
-				std::cout << "The square down is open!" << std::endl;
-				SquareVector.at(count + Width).SetOccupant(square.GetOccupant());
+				SquareVector.at(count + Width).SetOccupant(PCharacter);
+				PCharacter.SetXPosition(SquareVector.at(count + Width).GetXPosition());
+				PCharacter.SetYPosition(SquareVector.at(count + Width).GetYPosition());
 				Entities::BaseCharacter Placeholder;
 				SquareVector.at(count).SetOccupant(Placeholder);
 				break;
@@ -230,7 +224,5 @@ bool Geography::Map::MoveCharacterDown(Entities::BaseCharacter& PCharacter)
 		}
 		count++;
 	}
-
-	std::cout << "I moved the character down!" << std::endl;
 	return true;
 }

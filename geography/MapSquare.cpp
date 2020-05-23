@@ -23,7 +23,7 @@ Entities::BaseCharacter Geography::MapSquare::GetOccupant()
 {
 	return Occupant;
 }
-void Geography::MapSquare::SetOccupant(Entities::BaseCharacter& POccupant)
+void Geography::MapSquare::SetOccupant(Entities::BaseCharacter POccupant)
 {
 	Occupant = POccupant;
 }

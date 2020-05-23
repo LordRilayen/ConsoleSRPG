@@ -46,20 +46,20 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 
 	Player.GetCharacterList().push_back(CharacterVector.at(0));//test setup
 
-	std::cout << "Let's start with something basic.\n\n";
+	std::cout << "Let's start with something basic.\n" << std::endl;
 
 	while (PGame.GetIsGamePlaying())
 	{
 		std::cout << "It is your turn.\n\n";
 		std::cout << MapGenerator.BuildMap(GameMap) << std::endl;
 
-		/*Player.MoveCharacter(GameMap, 22, GameMap.GetSquareVector().at(22));*/
 		Player.MoveCharacter(GameMap, GameMap.GetSquareVector().at(22).GetOccupant());
-
 
 		//determine whether to end the game--maybe its own function later?
 		std::cout << "Are you done playing the game? y/n\n";
+		std::cout << "====================" << std::endl;
 		std::cin >> IsPlayingResponse;
+		std::cout << "====================\n" << std::endl;
 		if (IsPlayingResponse == "y")
 		{
 			PGame.SetIsGamePlaying(false);

@@ -38,8 +38,10 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, Entities::BaseCharacter
 	{
 		if (!MovementCancelled)
 		{
-			std::cout << PCharacter.GetName() + " has " + std::to_string(CharacterMoveDistance) + " movement remaining.\n\n";
+			std::cout << PCharacter.GetName() + " has " + std::to_string(CharacterMoveDistance) + " movement remaining.\n";
+			std::cout << "====================" << std::endl;
 			std::cin >> MoveCommand;
+			std::cout << "====================\n" << std::endl;
 		}
 		else
 		{
@@ -52,7 +54,7 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, Entities::BaseCharacter
 			else
 			{
 				std::cout << "Character Movement cancelled." << std::endl;
-				break;
+				return false;
 			}
 		}
 
@@ -131,7 +133,9 @@ bool Player::Player::MoveCharacter(Geography::Map& PMap, Entities::BaseCharacter
 				std::cout << "Confirm " + PCharacter.GetName() + "'s new location? Type Y to confirm or N to cancel, the press Enter." << std::endl;
 				do
 				{
+					std::cout << "====================" << std::endl;
 					std::cin >> Confirm;
+					std::cout << "====================\n" << std::endl;
 					if (Confirm.compare("Y") == 0 || Confirm.compare("y") == 0)
 					{
 						std::cout << PCharacter.GetName() + " moved to (" + std::to_string(PCharacter.GetXPosition()) + ", " + std::to_string(PCharacter.GetYPosition()) + ")" << std::endl;

@@ -118,10 +118,12 @@ Geography::Map Levels::TestFiveXFive::setUpAMap()
 std::vector<Entities::BaseCharacter> Levels::TestFiveXFive::setUpCharacters()
 {
 	Entities::BaseCharacter Roxas;
+	Roxas.SetName("Roxas");
 	Roxas.SetIsPlaceholder(false);
 	Roxas.SetSymbol("s");
 	Roxas.SetAffiliation("P");
 	Entities::BaseCharacter Vanitas;
+	Vanitas.SetName("Vanitas");
 	Vanitas.SetIsPlaceholder(false);
 	Vanitas.SetAffiliation("E");
 

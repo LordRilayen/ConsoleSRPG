@@ -26,6 +26,14 @@ void Geography::Map::SetHeight(int PHeight)
 {
 	Height = PHeight;
 }
+int Geography::Map::GetDifficulty()
+{
+	return Difficulty;
+}
+void Geography::Map::SetDifficulty(int PDifficulty)
+{
+	Difficulty = PDifficulty;
+}
 std::vector<Geography::MapSquare>& Geography::Map::GetSquareVector()
 {
 	return SquareVector;
@@ -33,6 +41,14 @@ std::vector<Geography::MapSquare>& Geography::Map::GetSquareVector()
 void Geography::Map::SetSquareVector(std::vector<Geography::MapSquare>& PSquareVector)
 {
 	SquareVector = PSquareVector;
+}
+std::vector<Entities::BaseCharacter>& Geography::Map::GetEnemyVector()
+{
+	return EnemyVector;
+}
+void Geography::Map::SetEnemyVector(std::vector<Entities::BaseCharacter>& PEnemyVector)
+{
+	EnemyVector = PEnemyVector;
 }
 
 //Practical Funtions---------------------------------------------------------------

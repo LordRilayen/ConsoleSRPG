@@ -20,8 +20,6 @@ namespace Game
 
 		//Practical functions-------------------------------
 		void PlayGame(Game::GameLoop& PGame);
-		Entities::BaseCharacter CreateNewCharacter();
-		Entities::BaseCharacter CreateNewCharacterFromTemplate(Entities::BaseCharacter PTemplate);
 		//--------------------------------------------------
 	private:
 		bool IsGamePlaying = true;

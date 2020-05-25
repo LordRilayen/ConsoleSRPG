@@ -81,7 +81,8 @@ Geography::Map Generators::MapGenerator::GenerateMap()
 
 	GameMap.SetHeight(8);
 	GameMap.SetWidth(8);
-	int TotalForces = CalculateEnemyForces(GameMap.GetHeight() * GameMap.GetWidth());
+	int MaxForces = CalculateEnemyForces(GameMap.GetHeight() * GameMap.GetWidth());
+	int TotalForces = 0;
 	GameMap.SetDifficulty(1);
 
 	//build a board
@@ -101,7 +102,8 @@ Geography::Map Generators::MapGenerator::GenerateMap()
 
 	//populate the board
 	Entities::BaseCharacter NewEnemy;
-	for (int i = 0; i < TotalForces; i++)
+	std::cout << std::to_string(MaxForces) << std::endl;
+	for (int i = 0; i < MaxForces; i++)
 	{
 		for (int j = 0; j < SquareVector.size(); j++)
 		{
@@ -114,9 +116,12 @@ Geography::Map Generators::MapGenerator::GenerateMap()
 					NewEnemy.SetAffiliation("E");
 					GameMap.GetEnemyVector().push_back(NewEnemy);
 					SquareVector.at(j).SetOccupant(NewEnemy);
+					TotalForces++;
+					if (TotalForces >= MaxForces) break;
 				}
 			}
 		}
+		if (TotalForces >= MaxForces) break;
 	}
 
 	//just in case RNG gave me an empty board

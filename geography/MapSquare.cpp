@@ -19,6 +19,14 @@ void Geography::MapSquare::SetYPosition(int PYPosition)
 {
 	YPosition = PYPosition;
 }
+bool Geography::MapSquare::GetIsDeploymentCenter()
+{
+	return IsDeploymentCenter;
+}
+void Geography::MapSquare::SetIsDeploymentCenter(bool PIsDeploymentCenter)
+{
+	IsDeploymentCenter = PIsDeploymentCenter;
+}
 Entities::BaseCharacter Geography::MapSquare::GetOccupant()
 {
 	return Occupant;

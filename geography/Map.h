@@ -37,6 +37,7 @@ namespace Geography
 		int Width;
 		int Height;
 		int Difficulty;
+		bool IsDeploymentCenter;
 		std::vector<Geography::MapSquare> SquareVector;
 		std::vector<Entities::BaseCharacter> EnemyVector;
 	};

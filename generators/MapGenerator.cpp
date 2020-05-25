@@ -77,6 +77,7 @@ Geography::Map Generators::MapGenerator::GenerateMap()
 	srand(time(0));
 	Geography::Map GameMap;
 	Generators::EnemyGenerator EnemyGenerator;
+	bool IsDeploymentCenterSet = false;
 	
 
 	GameMap.SetHeight(8);
@@ -111,6 +112,7 @@ Geography::Map Generators::MapGenerator::GenerateMap()
 			{
 				if (rand() % 2 == 1)
 				{
+					//TODO: Enemy creation will need to be expanded
 					NewEnemy = EnemyGenerator.CreateNewCharacter(GameMap.GetEnemyVector());
 					NewEnemy.SetIsPlaceholder(false);
 					NewEnemy.SetAffiliation("E");
@@ -119,9 +121,24 @@ Geography::Map Generators::MapGenerator::GenerateMap()
 					TotalForces++;
 					if (TotalForces >= MaxForces) break;
 				}
+				//give the player somewhere to start placing their units
+				if ((!IsDeploymentCenterSet) && (rand() % 5 == 1))
+				{
+					SquareVector.at(j).SetIsDeploymentCenter(true);
+					IsDeploymentCenterSet = true;
+				}
 			}
 		}
 		if (TotalForces >= MaxForces) break;
+	}
+
+	//make sure the player has somewhere to place their units if it never happened in the previous loops
+	if (!IsDeploymentCenterSet)
+	{
+		Entities::BaseCharacter Placeholder;
+		SquareVector.at(SquareVector.size() - 1).SetOccupant(Placeholder);
+		SquareVector.at(SquareVector.size() - 1).SetIsDeploymentCenter(true);
+		IsDeploymentCenterSet = true;
 	}
 
 	//just in case RNG gave me an empty board

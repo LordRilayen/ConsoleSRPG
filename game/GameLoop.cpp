@@ -5,6 +5,7 @@
 #include "GameLoop.h"
 #include "../levels/TestFiveXFive.h"
 #include "../player/Player.h"
+#include "../generators/CharacterGenerator.h"
 
 //Getters and setters-------------------------------------------------------------
 bool Game::GameLoop::GetIsGamePlaying()
@@ -31,29 +32,19 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 	//First we need a Player
 	Player::Player Player;
 
-	Levels::TestFiveXFive TestLevel;//test setup
+	//Levels::TestFiveXFive TestLevel;//MOVING BEYOND THIS TYPE OF MAP
 	Generators::MapGenerator MapGenerator;
+	Generators::CharacterGenerator CharacterGenerator;
 	std::string IsPlayingResponse;
-
-	Geography::Map GameMap = TestLevel.setUpAMap();//test setup
-	std::vector<Entities::BaseCharacter> CharacterVector = TestLevel.setUpCharacters();//test setup
-	GameMap.GetSquareVector().at(22).SetOccupant(CreateNewCharacterFromTemplate(CharacterVector.at(0)));//test setup
-	GameMap.GetSquareVector().at(22).GetOccupant().SetXPosition(GameMap.GetSquareVector().at(22).GetXPosition());
-	GameMap.GetSquareVector().at(2).SetOccupant(CreateNewCharacterFromTemplate(CharacterVector.at(1)));//test setup
-	GameMap.GetSquareVector().at(2).GetOccupant().SetXPosition(GameMap.GetSquareVector().at(2).GetXPosition());
-	GameMap.GetSquareVector().at(1).SetOccupant(CreateNewCharacterFromTemplate(CharacterVector.at(1)));//test setup
-	GameMap.GetSquareVector().at(1).GetOccupant().SetXPosition(GameMap.GetSquareVector().at(1).GetXPosition());
-
-	Player.GetCharacterList().push_back(CharacterVector.at(0));//test setup
 
 	std::cout << "Let's start with something basic.\n" << std::endl;
 
 	while (PGame.GetIsGamePlaying())
 	{
-		std::cout << "It is your turn.\n\n";
-		std::cout << MapGenerator.BuildMap(GameMap) << std::endl;
+		Geography::Map GameMap = MapGenerator.GenerateMap();
 
-		Player.MoveCharacter(GameMap, GameMap.GetSquareVector().at(22).GetOccupant());
+		std::cout << "It is your turn.\n" << std::endl;
+		std::cout << MapGenerator.BuildMap(GameMap) << std::endl;
 
 		//determine whether to end the game--maybe its own function later?
 		std::cout << "Are you done playing the game? y/n\n";
@@ -70,26 +61,18 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 		}
 	}
 }
-Entities::BaseCharacter Game::GameLoop::CreateNewCharacter()
-{
-	Entities::BaseCharacter NewCharacter;
-	return CreateNewCharacterFromTemplate(NewCharacter);
-}
-Entities::BaseCharacter Game::GameLoop::CreateNewCharacterFromTemplate(Entities::BaseCharacter PTemplate)
-{
-	//Get the last character in AllGameCharacters (which should have everyone), get their CreationId, increment it, and set that for the new character
-	if (AllGameCharacters.size() == 0)
-	{
-		PTemplate.SetCreationId(1);
-	}
-	else
-	{
-		PTemplate.SetCreationId(AllGameCharacters.at(AllGameCharacters.size() - 1).GetCreationId() + 1);
-	}
-	AllGameCharacters.push_back(PTemplate);
-
-	return PTemplate;
-}
 
 
 //---------------------------------------------------------------------------------
+
+//JUST PUT ALL THIS DOWN THERE FOR NOW JUST IN CASE
+//Geography::Map GameMap = TestLevel.setUpAMap();//test setup
+	//std::vector<Entities::BaseCharacter> CharacterVector = TestLevel.setUpCharacters();//test setup
+	//GameMap.GetSquareVector().at(22).SetOccupant(CharacterGenerator.CreateNewCharacterFromTemplate(AllGameCharacters, CharacterVector.at(0)));//test setup
+	//GameMap.GetSquareVector().at(22).GetOccupant().SetXPosition(GameMap.GetSquareVector().at(22).GetXPosition());
+	//GameMap.GetSquareVector().at(2).SetOccupant(CharacterGenerator.CreateNewCharacterFromTemplate(AllGameCharacters, CharacterVector.at(1)));//test setup
+	//GameMap.GetSquareVector().at(2).GetOccupant().SetXPosition(GameMap.GetSquareVector().at(2).GetXPosition());
+	//GameMap.GetSquareVector().at(1).SetOccupant(CharacterGenerator.CreateNewCharacterFromTemplate(AllGameCharacters, CharacterVector.at(1)));//test setup
+	//GameMap.GetSquareVector().at(1).GetOccupant().SetXPosition(GameMap.GetSquareVector().at(1).GetXPosition());
+
+	//Player.GetCharacterList().push_back(CharacterVector.at(0));//test setup

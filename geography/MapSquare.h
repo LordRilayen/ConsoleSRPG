@@ -14,6 +14,8 @@ namespace Geography
 		void SetXPosition(int PXPosition);
 		int GetYPosition();
 		void SetYPosition(int PYPosition);
+		bool GetIsDeploymentCenter();
+		void SetIsDeploymentCenter(bool PIsDeploymentCenter);
 		Entities::BaseCharacter GetOccupant();
 		void SetOccupant(Entities::BaseCharacter POccupant);
 
@@ -22,6 +24,7 @@ namespace Geography
 	private:
 		int XPosition;
 		int YPosition;
+		bool IsDeploymentCenter;
 		Entities::BaseCharacter Occupant;
 		//Geography::Feature LikeAWallOrTreesOrSomething idk I haven't made these yet
 	};

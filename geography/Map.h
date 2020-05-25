@@ -16,8 +16,12 @@ namespace Geography
 		void SetWidth(int PWidth);
 		int GetHeight();
 		void SetHeight(int PHeight);
+		int GetDifficulty();
+		void SetDifficulty(int PDifficulty);
 		std::vector<Geography::MapSquare>& GetSquareVector();
 		void SetSquareVector(std::vector<Geography::MapSquare>& PSquareVector);
+		std::vector<Entities::BaseCharacter>& GetEnemyVector();
+		void SetEnemyVector(std::vector<Entities::BaseCharacter>& PEnemyVector);
 		
 		//Practical Functions-----------------------------------------------------------
 		Geography::MapSquare CheckSquareLeft(Geography::MapSquare& PMapSquare);
@@ -32,6 +36,9 @@ namespace Geography
 	private:
 		int Width;
 		int Height;
+		int Difficulty;
+		bool IsDeploymentCenter;
 		std::vector<Geography::MapSquare> SquareVector;
+		std::vector<Entities::BaseCharacter> EnemyVector;
 	};
 }

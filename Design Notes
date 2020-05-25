@@ -64,6 +64,19 @@ Mechanics:
 				--if Critical, + Critical Bonus
 				--if Elemental, a second round of damage is dealth
 				  -- (((Personal Elemental Damage + Spell Elemental Damage) + (Spell Tier * Spell Level)) * (1 + Weapon Proficiency/100)) - Target's Resistance
+	Level Generation:
+		Every map has an assigned Difficulty level, starting at 1 and increasing (theoretically) infinitely
+		Every map will have a pseudorandom number of enemies based on the size of the map.
+			We take the total size of the map and cut it in half. Get a random number between 1 and that value. Hold onto this value.
+			We take that value and cut it in half again, and again take a random number between 1 and the new value. Hold onto this value.
+			"Flip a coin." Heads we add the values, tails we subtract the second one.
+			"Flip another coin." Heads we add 2, tails we subtract 2.
+
+			Ex:
+				8x8 Map.
+				64 squares -> random number between 1-32 -> 3 -> random number between 1 - 3 -> 3 -> "tails" -> 3 - 3 = 0 -> "heads" -> 0 + 2 = 2: The map will have 2 enemies
+				64 squares -> random number between 1-32 -> 26 -> random number between 1 - 13 -> 3 -> "tails" -> 26 - 3 = 23 -> "tails" -> 23 - 2 = 21: The map will have 21 enemies
+				64 squares -> random number between 1-32 -> 17 -> random number between 1 - 13 -> 1 -> "heads" -> 17 + 1 = 23 -> "tails" -> 17 - 2 = 15: The map will have 15 enemies
 
 Inventory:
 	Items are organized (in code) into the following hierarchy:

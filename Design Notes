@@ -34,6 +34,12 @@ Characters:
 		Gun: 0
 		Axe: 0
 		Staff: 0
+		Alembic: 0
+		Chapter: 0
+		Hammer: 0
+		Hatchet: 0
+		Pickaxe: 0
+		Brush: 0
 
 	All characters have the following seven equipment slots (which are empty by default for a new character):
 		CURRENT EQUIPMENT
@@ -58,6 +64,7 @@ Glossary:
 		Non-combat:
 			Alchemist:
 				Alchemists are masters of practical Chemimancy and can use gathered materials to craft potions and Chemimantic spells
+				Alchemists wield Alembic, and a character must have
 			Anchorite:
 				Anchorites are masters of practical Physimancy and can use gathered materials to craft accessories and Physimantic spells
 			Blacksmith:
@@ -183,6 +190,12 @@ Glossary:
 		Gun:
 		Axe:
 		Staff:
+		Alembic:
+		Chapter:
+		Hammer:
+		Hatchet:
+		Pickaxe:
+		Brush:
 	Equipment:
 		Helmet:
 		Armor:
@@ -208,6 +221,12 @@ Inventory:
 				-Gun
 				-Axe
 				-Staff
+				-Alembic
+				-Chapter
+				-Hammer
+				-Hatchet
+				-Pickaxe
+				-Brush
 		Each of these sub-categories after Item.h/.cpp is represented by an empty .h file which extends the category above it.
 		Individual pieces of loot which fall into each sub-category will extend the sub-category and set default values.
 

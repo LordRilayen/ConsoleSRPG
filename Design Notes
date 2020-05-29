@@ -37,7 +37,7 @@ Characters:
 		Alembic: 0
 		Chapter: 0
 		Hammer: 0
-		Hatchet: 0
+		Sickle: 0
 		Pickaxe: 0
 		Brush: 0
 
@@ -52,31 +52,124 @@ Characters:
 		Accessory Two:
 	Character markers
 		Characters have a symbol (designated by their class), which is displayed on the map. It is capitalized when the character is active. These symbols are:
+			-Alchemist: 5 or %
+			-Anchorite: 2 or @
+			-Blacksmith: 6 or ^
+			-Botanist: 9 or (
+			-Miner: 0 or )
+			-Painter: 1 or !
 			-Survivor: s or S
 		Characters have an affiliation, to tell at a glance if they are a friend or foe
 			-Player controlled: P
 			-Enemy controlled: E
 
 Glossary:
+	Camp:
+		Camp Actions:
+			Alchemy:
+				(Figure out how this works later)
+			Anchory:
+				(Figure out how this works later)
+			Blacksmithing:
+				(Figure out how this works later)
+			Harvest:
+				Generate a special map which will have a significantly increased number of Herbs and Flowers, no Ore or Gems, and cannot be a Cave-type or Mine-type
+			Painting:
+				(Figure out how this works later)
+			Spelunk:
+				Generate a special map which will have a significantly increased number of Ores and Gems, no Herbs or Flowers, and will be a Cave-type or Mine-type
 	Classes:
 		Hybrid:
 		Magic:
 		Non-combat:
 			Alchemist:
-				Alchemists are masters of practical Chemimancy and can use gathered materials to craft potions and Chemimantic spells
-				Alchemists wield Alembic, and a character must have
+				-Alchemists are masters of practical Chemimancy and can use gathered materials to craft potions and Chemimantic spells
+				-Alchemists wield Alembics, and a character must have at least an Alembic Proficiency of 1+ to change classes to an Alchemist
+				-Map symbol - "5" when unactive, and "%" when active
+				-Alchemists gain EXP via Alchemy crafting
+				-Class Parameters:
+					-Mov: -2
+					-Character becomes available for Alchemy crafting
+				-On Level-up:
+					HP: +1
+					Res: +3
 			Anchorite:
-				Anchorites are masters of practical Physimancy and can use gathered materials to craft accessories and Physimantic spells
+				-Anchorites are masters of practical Physimancy and can use gathered materials to craft accessories and Physimantic spells
+				-Anchorites wield Chapters, and a character must have at least a Chapter Proficiency of 1+ to change classes to an Anchorite
+				-Map symbol - "2" when unactive, and "@" when active
+				-Anchorites gain EXP via Anchory crafting
+				-Class Parameters:
+					-Mov: -4
+					-Character becomes available for Anchory crafting
+				-On Level-up:
+					HP: +1
+					Res: +3
 			Blacksmith:
-				Blacksmiths are masters of practical Geomancy and can use gathered materials to craft weapons, armor and Geomantic spells
+				-Blacksmiths are masters of practical Geomancy and can use gathered materials to craft weapons, armor and Geomantic spells
+				-Blacksmiths wield Hammers, and a character must have at least a Hammer Proficiency of 1+ to change classes to a Blacksmith
+				-Map symbol - "6" when unactive, and "^" when active
+				-Blacksmiths gain EXP via Blacksmithing crafting
+				-Class Parameters:
+					-Mov: -1
+					-Character becomes available for Blacksmithing crafting
+				-On Level-up:
+					-HP: +1
+					-Str: +3
 			Botanist:
-				Botanists can seek out locations likely to provide large amounts of Herbs and Flowers for gathering, as well as gather from them more effectively
+				-Botanists can seek out locations likely to provide large amounts of Herbs and Flowers for gathering, as well as gather from them more effectively
+				-Botanists wield Sickles, and a character must have at least a Sickle Proficiency of 1+ to change classes to a Botanist
+				-Map symbol - "9" when unactive, and "(" when active
+				-Botanists gain EXP by gathering Herbs or Flowers
+				-Class Parameters:
+					-Mov: +3
+					-Unlock the Camp Action "Harvest," if it is not already available
+				-On Level-up:
+					-HP: +3
+					-Str: +1
+					-Int: +2
+					-Res: +1
 			Miner:
-				Miners can seek out locations likely to provide large amounts of Ore and Gems for gathering, as well as gather from them more effectively
+				-Miners can seek out locations likely to provide large amounts of Ore and Gems for gathering, as well as gather from them more effectively
+				-Miners wield Pickaxes, and a character must have at least a Pickaxe Proficiency of 1+ to change classes to a Miner
+				-Map symbol - "0" when unactive, and ")" when active
+				-Miners gain EXP by gathering Ore and Gems
+				-Class Parameters:
+					-Mov: +3
+					-Unlock the Camp Action "Spelunk," if it is not already available
+				-On Level-up:
+					-HP: +3
+					-Str: +2
+					-Def: +1
+					-Res: +1
 			Painter:
-				Painters are masters of practical Astromancy and can use gathered materials to craft other materials and Astromantic spells
+				-Painters are masters of practical Astromancy and can use gathered materials to craft other materials and Astromantic spells
+				-Painters wield Brushes, and a character must have at least a Brush Proficiency of 1+ to change classes to a Painter
+				-Map symbol - "1" when unactive, or "!" when active
+				-Painters gain EXP via Painting crafting
+				-Class Parameters:
+					-Mov: -2
+					-Character becomes available for Painting crafting (create crafting materials and Astromantic spells)
+				-On Level-up:
+					-HP: +1
+					-Int: +3
 		Physical:
 			Survivor:
+				-Survivors are new characters who have no class, no proficiency, and no skills in or out of combat. They are able to use all weapons, but gain no EXP in battle
+				 towards leveling up. They are also the only "Combat" class which is able to use any of the four crafting types (Alchemy, Anchory, Blacksmithing, or Painting),
+				 or two gathering types, (Mining or Botany). However, they may gain weapon proficiency only to 1
+				-Survivors wield no particular weapon, and all characters start as Survivors when recruited
+				-Map symbol - "s" when unactive, and "S" when active
+				-Survivors gain no EXP from any source, and may only progress to 1 Proficiency for any weapon type
+				-Class Parameters:
+					-Cannot change to Survivor, only from, thus no changes
+					-Character can use any weapon and any type of crafting/gathering
+				-On Level-up:
+					-Survivors cannot Level-up
+	Crafting:
+		Alchemy: create potions and Chemimantic spells out of Reagents
+		Anchory: create accessories and Physimantic spells out of Focuses
+		Blacksmithing: create weapons, armor, and Geomantic spells out of Ingots
+		Painting: create crafting materials and Astromantic spells out of Dyes
 	Consumables:
 	Magic:
 		Astromancy: Magic relating to space and time
@@ -143,7 +236,18 @@ Glossary:
 				Physimantic Gun: Temporarily summon a projectile which functions as a gun of a particular strength
 				Smash: Deal massive damage to any non-character target
 				Tidal Wave: Deal a particular amount of Water damage in a cone
+	Map-types:
+		Cave:
+		Mine:
 	Materials:
+		Dyes:	Painting materials
+		Flowers: Crafting materials gathered by Botanists, used to create Painting Dyes
+		Focuses: Anchory materials 
+		Gems: Crafting materials gathered by Miners, used to create Anchory Focuses
+		Herbs: Crafting materials gathered by Botanists, used to create Alchemy Reagents
+		Ingots: Blacksmithing materials
+		Ores: Crafting materials gathered by Miners, used to create Blacksmithing Ingots
+		Reagents: Alchemy materials
 	Stats:
 		Level: A character's level, a general description of their proficiency
 		HP: How much damage a character can take before death
@@ -193,7 +297,7 @@ Glossary:
 		Alembic:
 		Chapter:
 		Hammer:
-		Hatchet:
+		Sickle:
 		Pickaxe:
 		Brush:
 	Equipment:
@@ -212,6 +316,14 @@ Inventory:
 				-Gloves
 				-Accessory
 			-Material
+				-Dye
+				-Flower
+				-Focus
+				-Gem
+				-Herb
+				-Ingot
+				-Ore
+				-Reagent
 			-Weapon
 				-Fist
 				-Sword
@@ -224,7 +336,7 @@ Inventory:
 				-Alembic
 				-Chapter
 				-Hammer
-				-Hatchet
+				-Sickle
 				-Pickaxe
 				-Brush
 		Each of these sub-categories after Item.h/.cpp is represented by an empty .h file which extends the category above it.

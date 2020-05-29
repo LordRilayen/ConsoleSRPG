@@ -81,8 +81,8 @@ namespace Entities
 		void SetChapterProficiency(int ChtPro);
 		int GetHammerProficiency();
 		void SetHammerProficiency(int HamPro);
-		int GetHatchetProficiency();
-		void SetHatcherProficiency(int HatPro);
+		int GetSickleProficiency();
+		void SetSickleProficiency(int SklPro);
 		int GetPickaxeProficiency();
 		void SetPickaxeProficiency(int PkxPro);
 		int GetBrushProficiency();
@@ -166,7 +166,7 @@ namespace Entities
 		int AlembicProficiency = 0;
 		int ChapterProficiency = 0;
 		int HammerProficiency = 0;
-		int HatchetProficiency = 0;
+		int SickleProficiency = 0;
 		int PickaxeProficiency = 0;
 		int BrushProficiency = 0;
 

@@ -286,13 +286,13 @@ void Entities::BaseCharacter::SetHammerProficiency(int PHamPro)
 {
 	HammerProficiency = PHamPro;
 }
-int Entities::BaseCharacter::GetHatchetProficiency()
+int Entities::BaseCharacter::GetSickleProficiency()
 {
-	return HatchetProficiency;
+	return SickleProficiency;
 }
-void Entities::BaseCharacter::SetHatcherProficiency(int PHatPro)
+void Entities::BaseCharacter::SetSickleProficiency(int PSklPro)
 {
-	HatchetProficiency = PHatPro;
+	SickleProficiency = PSklPro;
 }
 int Entities::BaseCharacter::GetPickaxeProficiency()
 {
@@ -439,7 +439,7 @@ void Entities::BaseCharacter::GetCompleteStatus()
 		"Alembic: " << AlembicProficiency << std::endl <<
 		"Chapter: " << ChapterProficiency << std::endl <<
 		"Hammer: " << HammerProficiency << std::endl <<
-		"Hatchet: " << HatchetProficiency << std::endl <<
+		"Hatchet: " << SickleProficiency << std::endl <<
 		"Pickaxe: " << PickaxeProficiency << std::endl <<
 		"Brush: " << BrushProficiency << std::endl <<
 		"CURRENT EQUIPMENT" << std::endl <<

@@ -4,5 +4,5 @@
 
 namespace Loot
 {
-	class Hatchet: public Weapon { };
+	class Sickle: public Weapon { };
 }

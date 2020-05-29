@@ -75,6 +75,18 @@ namespace Entities
 		void SetAxeProficiency(int AxePro);
 		int GetStaffProficiency();
 		void SetStaffProficiency(int StfPro);
+		int GetAlembicProficiency();
+		void SetAlembicProficiency(int AlmPro);
+		int GetChapterProficiency();
+		void SetChapterProficiency(int ChtPro);
+		int GetHammerProficiency();
+		void SetHammerProficiency(int HamPro);
+		int GetHatchetProficiency();
+		void SetHatcherProficiency(int HatPro);
+		int GetPickaxeProficiency();
+		void SetPickaxeProficiency(int PkxPro);
+		int GetBrushProficiency();
+		void SetBrushProficiency(int BrsPro);
 
 		std::string GetRightWeapon();
 		void SetRightWeapon(std::string RW);
@@ -151,6 +163,12 @@ namespace Entities
 		int GunProficiency = 0;
 		int AxeProficiency = 0;
 		int StaffProficiency = 0;
+		int AlembicProficiency = 0;
+		int ChapterProficiency = 0;
+		int HammerProficiency = 0;
+		int HatchetProficiency = 0;
+		int PickaxeProficiency = 0;
+		int BrushProficiency = 0;
 
 		//Current Equipment
 		//TODO: Make classes for these

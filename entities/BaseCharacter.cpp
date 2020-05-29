@@ -262,6 +262,54 @@ void Entities::BaseCharacter::SetStaffProficiency(int PStfPro)
 {
 	StaffProficiency = PStfPro;
 }
+int Entities::BaseCharacter::GetAlembicProficiency()
+{
+	return AlembicProficiency;
+}
+void Entities::BaseCharacter::SetAlembicProficiency(int PAlmPro)
+{
+	AlembicProficiency = PAlmPro;
+}
+int Entities::BaseCharacter::GetChapterProficiency()
+{
+	return ChapterProficiency;
+}
+void Entities::BaseCharacter::SetChapterProficiency(int PChtPro)
+{
+	ChapterProficiency = PChtPro;
+}
+int Entities::BaseCharacter::GetHammerProficiency()
+{
+	return HammerProficiency;
+}
+void Entities::BaseCharacter::SetHammerProficiency(int PHamPro)
+{
+	HammerProficiency = PHamPro;
+}
+int Entities::BaseCharacter::GetHatchetProficiency()
+{
+	return HatchetProficiency;
+}
+void Entities::BaseCharacter::SetHatcherProficiency(int PHatPro)
+{
+	HatchetProficiency = PHatPro;
+}
+int Entities::BaseCharacter::GetPickaxeProficiency()
+{
+	return PickaxeProficiency;
+}
+void Entities::BaseCharacter::SetPickaxeProficiency(int PPkxPro)
+{
+	PickaxeProficiency = PPkxPro;
+}
+int Entities::BaseCharacter::GetBrushProficiency()
+{
+	return BrushProficiency;
+}
+void Entities::BaseCharacter::SetBrushProficiency(int PBrsPro)
+{
+	BrushProficiency = PBrsPro;
+}
 
 std::string Entities::BaseCharacter::GetRightWeapon()
 {
@@ -388,6 +436,12 @@ void Entities::BaseCharacter::GetCompleteStatus()
 		"Gun: " << GunProficiency << std::endl <<
 		"Axe: " << AxeProficiency << std::endl <<
 		"Staff: " << StaffProficiency << std::endl <<
+		"Alembic: " << AlembicProficiency << std::endl <<
+		"Chapter: " << ChapterProficiency << std::endl <<
+		"Hammer: " << HammerProficiency << std::endl <<
+		"Hatchet: " << HatchetProficiency << std::endl <<
+		"Pickaxe: " << PickaxeProficiency << std::endl <<
+		"Brush: " << BrushProficiency << std::endl <<
 		"CURRENT EQUIPMENT" << std::endl <<
 		"Right Weapon: " << RightWeapon << std::endl <<
 		"Left Weapon: " << LeftWeapon << std::endl <<

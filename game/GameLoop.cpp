@@ -32,7 +32,6 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 	//First we need a Player
 	Player::Player Player;
 
-	//Levels::TestFiveXFive TestLevel;//MOVING BEYOND THIS TYPE OF MAP
 	Generators::MapGenerator MapGenerator;
 	Generators::CharacterGenerator CharacterGenerator;
 	std::string IsPlayingResponse;
@@ -41,10 +40,8 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 
 	while (PGame.GetIsGamePlaying())
 	{
-		Geography::Map GameMap = MapGenerator.GenerateMap();
-
-		std::cout << "It is your turn.\n" << std::endl;
-		std::cout << MapGenerator.BuildMap(GameMap) << std::endl;
+		Entities::BaseCharacter Replica = CharacterGenerator.CreateNewCharacter(AllGameCharacters);
+		Replica.GetCompleteStatus();
 
 		//determine whether to end the game--maybe its own function later?
 		std::cout << "Are you done playing the game? y/n\n";

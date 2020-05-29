@@ -34,6 +34,12 @@ Characters:
 		Gun: 0
 		Axe: 0
 		Staff: 0
+		Alembic: 0
+		Chapter: 0
+		Hammer: 0
+		Hatchet: 0
+		Pickaxe: 0
+		Brush: 0
 
 	All characters have the following seven equipment slots (which are empty by default for a new character):
 		CURRENT EQUIPMENT
@@ -51,32 +57,150 @@ Characters:
 			-Player controlled: P
 			-Enemy controlled: E
 
-Mechanics:
-	Combat:
-		On attacking, the damage dealt is determined by:
-			Physical
-				--(((Strength + Weapon Strength) + (Weapon Tier * Weapon Level))* (1 + Weapon Proficiency/100)) - Target's Defense
-				--if Critical, + Critical Bonus
-				--if Elemental, a second round of damage is dealt
-					-- ((Personal Elemental Damage + Weapon Elemental Damage) * (1 + Weapon/Proficiency/100)) - Target's Elemental Resistance
-			Magical
-				--(((Intelligence + Weapon Intelligence) + (Spell Tier * Spell Level)) * (1 + Weapon Proficiency/100)) - Target's Resistance
-				--if Critical, + Critical Bonus
-				--if Elemental, a second round of damage is dealth
-				  -- (((Personal Elemental Damage + Spell Elemental Damage) + (Spell Tier * Spell Level)) * (1 + Weapon Proficiency/100)) - Target's Resistance
-	Level Generation:
-		Every map has an assigned Difficulty level, starting at 1 and increasing (theoretically) infinitely
-		Every map will have a pseudorandom number of enemies based on the size of the map.
-			We take the total size of the map and cut it in half. Get a random number between 1 and that value. Hold onto this value.
-			We take that value and cut it in half again, and again take a random number between 1 and the new value. Hold onto this value.
-			"Flip a coin." Heads we add the values, tails we subtract the second one.
-			"Flip another coin." Heads we add 2, tails we subtract 2.
-
-			Ex:
-				8x8 Map.
-				64 squares -> random number between 1-32 -> 3 -> random number between 1 - 3 -> 3 -> "tails" -> 3 - 3 = 0 -> "heads" -> 0 + 2 = 2: The map will have 2 enemies
-				64 squares -> random number between 1-32 -> 26 -> random number between 1 - 13 -> 3 -> "tails" -> 26 - 3 = 23 -> "tails" -> 23 - 2 = 21: The map will have 21 enemies
-				64 squares -> random number between 1-32 -> 17 -> random number between 1 - 13 -> 1 -> "heads" -> 17 + 1 = 23 -> "tails" -> 17 - 2 = 15: The map will have 15 enemies
+Glossary:
+	Classes:
+		Hybrid:
+		Magic:
+		Non-combat:
+			Alchemist:
+				Alchemists are masters of practical Chemimancy and can use gathered materials to craft potions and Chemimantic spells
+				Alchemists wield Alembic, and a character must have
+			Anchorite:
+				Anchorites are masters of practical Physimancy and can use gathered materials to craft accessories and Physimantic spells
+			Blacksmith:
+				Blacksmiths are masters of practical Geomancy and can use gathered materials to craft weapons, armor and Geomantic spells
+			Botanist:
+				Botanists can seek out locations likely to provide large amounts of Herbs and Flowers for gathering, as well as gather from them more effectively
+			Miner:
+				Miners can seek out locations likely to provide large amounts of Ore and Gems for gathering, as well as gather from them more effectively
+			Painter:
+				Painters are masters of practical Astromancy and can use gathered materials to craft other materials and Astromantic spells
+		Physical:
+			Survivor:
+	Consumables:
+	Magic:
+		Astromancy: Magic relating to space and time
+			Astromantic Effects:
+				Comet - Summon a comet to strike a space, dealing a particular amount of Physical damage
+				Meteor - Summon a meteor to strike an area, dealing a particular amount of Physical damage
+				Rend - Split a character in two, creating two characters with half HP
+				Teleport - Move a character a certain number of spaces
+				Temporal Accuracy - Temporarily increase or decrease the accuracy of a character by a certain number of levels
+				Temporal Acumen - Temporarily increase or decrease the mana of a character by a certain number of levels
+				Temporal Defense - Temporarily increase or decrease the defense of a character by a certain number of levels
+				Temporal Intellect - Temporarily increase or decrease the intelligence of a character by a certain number of levels
+				Temporal Resistance - Temporarily increase or decrease the resistance of a character by a certain number of levels
+				Temporal Speed - Temporarily increase or decrease the speed of a character by a certain number of levels
+			 	Temporal Strength - Temporarily increase or decrease the strength of a character by a certain number of levels
+				Temporal Vitality - Temporarily increase or decrease the health of a character by a certain number of levels
+				Vortex - Draw characters towards a particular point
+				Weave - Combine two characters, killing the weaker and adding their HP to the stronger
+		Chemimancy: Magic relating to internal composition
+			Chemimantic Effects:
+				Charge - Temporarily drain a target's Water Resistance and add the value drained to its Thunder Resistance
+				Chill - Temporarily drain a target's Fire Resistance and add the value drained to its Ice Resistance
+				Drain Health - Drain health directly from a source, against the source's Resistance
+				Drain Mana - Drain mana directly from a source, against the source's Resistance
+				Drench - Temporarily drain a target's Thunder Resistance and add the value drained to its Water Resistance
+				Heat - Temporarily drain a target's Ice Resistance and add the value drained to its Fire Resistance
+				Paralysis - Inflict or remove the Paralyzed Status Effect
+				Petrification - Inflict or remove the Petrified Status Effect
+				Restore Health - Restore health directly to a target
+				Restore Mana - Restore mana directly to a target
+				Silence - Inflict or remove the Silenced Status Effect
+				Sleep - Inflict or remove the Sleep Status Effect
+				Toxin - Inflict or remove the Intoxicated Status Effect
+				Venom - Inflict or remove the Envenomated Status Effect
+		Geomancy: Magic relating to stone and metal
+			Geomantic Effects:
+				Convection: Deal Fire damage to an enemy directly based on a particular percentage of their armor's defense
+				Dome: Raise a stone dome over a space with a particular amount of health; any character within the dome is isolated from everything outside until the dome is destroyed
+				Earthquake: Deal a particular amount of physical damage to all characters in an area
+				Elevate: Raise a square above the field for a particular duration; characters on the square cannot take or receive melee attacks, but receive a bonus to accuracy and critical chance
+				Flash Axe: Temporarily summon an axe of a particular strength
+				Flash Fist: Temporarily summon a cestus of a particular strength
+				Flash Shield: Temporarily summon a shield of a particular defense
+				Flash Spear: Temporarily summon a spear of a particular strength
+				Flash Sword: Temporarily summon a sword of a particular strength
+				Fortify: Erect a stone wall with a particular amount of health in an area
+				Molten: Turn spaces in a line molten, dealing a particular amount of Fire damage
+				Shatter Arms: Reduce the strength of an axe, cestus, spear, or sword by a particular amount
+				Shatter Armor: Reduce the defense of a shield, helm, armor, or gloves by a particular amount
+				Sink: Turn an area to quicksand, restricting movement for a particular amount of time
+		Physimancy: Magic relating to forces
+			Physimantic Effects:
+				Bolt Thrust: Deal a particular amount of Thunder damage in a direct line
+				Cast Flame: Deal a particular amount of Fire damage to a target
+				Cast Chill: Deal a particular amount of Ice damage to a target
+				Cast Shock: Deal a particular amount of Thunder damage to a target
+				Cast Wave: Deal a particular amount of Water damage to a target
+				Collapse: Deal massive damage to all non-character targets in a perpendicular line
+				Concuss: Strike the first object in a line with a burst of force, dealing a particular amount of Physical damage and moving it backward up to three squares if it is a character (and such a move is possible).
+				Expel: Deal a particular amount of Physical damage to targets in each adjacent space, moving them one space away if they are characters (and such a move is possible).
+				Flame Sheet: Deal a particular amount of Fire damage in a circular area
+				Frozen Phalanx: Deal a particular amount of Ice damage in a perpendicular line
+				Physimantic Arrow: Temporarily summon a projectile which functions as a bow of a particular strength
+				Physimantic Gun: Temporarily summon a projectile which functions as a gun of a particular strength
+				Smash: Deal massive damage to any non-character target
+				Tidal Wave: Deal a particular amount of Water damage in a cone
+	Materials:
+	Stats:
+		Level: A character's level, a general description of their proficiency
+		HP: How much damage a character can take before death
+		MP: A resource expended to cast all types of magic
+		EXP: A resource gained by actions related to one's class; at thresholds, the character increases in Level
+		Str: A representation of a character's physical strength
+		Def: A representation of a character's physical toughness
+		Int: A representation of a character's mental prowess
+		Res: A representation of a character's mental focus
+		Acc: A representation of a character's precision
+		Spd: A representation of how quickly a character performs actions
+		Mov: How far a character can travel in one turn in battle
+		CrC: How likely a character is to perform beyond their normal capabilities
+		CrB: How far beyond their normal capabilities a character will achieve when activated
+		Fire: How well a character resists Fire damage
+		Ice: How well a character resists Ice damage
+		Thunder: How well a character resists Thunder damage
+		Water: How well a character resists Water damage
+		Fist: How skilled a character is in fighting with cesti
+		Sword: How skilled a character is in fighting with a sword
+		Shield: How skilled a character is in fighting with a shield
+		Spear: How skilled a character is in fighting with a spear
+		Bow: How skilled a character is in fighting with a bow
+		Gun: How skilled a character is in fighting with a gun
+		Axe: How skilled a character is in fighting with an axe
+		Staff: How skilled a character is in fighting with a staff
+	Status Effects:
+		Charged: Increased Thunder Resistance, lowered Water Resistance
+		Chilled: Increased Ice Resistance, lowered Fire Resistance
+		Drenched: Increased Water Resistance, lowered Thunder Resistance
+		Envenomated: Health drain every turn
+		Heated: Increased Fire Resistance, lowered Ice Resistance
+		Paralyzed: Unable to use weapons
+		Petrified: Unable to take any action, immune to magic damage, may shatter from physical damage and die instantly
+		Silenced: Unable to cast magic
+		Sleep: Unable to take any action, effect ended by physical damage, take increased magic damage
+		Intoxicated: Mana drain every turn
+	Weapons:
+		Fist:
+		Sword:
+		Shield:
+		Spear:
+		Bow:
+		Gun:
+		Axe:
+		Staff:
+		Alembic:
+		Chapter:
+		Hammer:
+		Hatchet:
+		Pickaxe:
+		Brush:
+	Equipment:
+		Helmet:
+		Armor:
+		Gloves:
+		Accessories:
 
 Inventory:
 	Items are organized (in code) into the following hierarchy:
@@ -97,5 +221,40 @@ Inventory:
 				-Gun
 				-Axe
 				-Staff
+				-Alembic
+				-Chapter
+				-Hammer
+				-Hatchet
+				-Pickaxe
+				-Brush
 		Each of these sub-categories after Item.h/.cpp is represented by an empty .h file which extends the category above it.
 		Individual pieces of loot which fall into each sub-category will extend the sub-category and set default values.
+
+Mechanics:
+	Combat:
+		On attacking, the damage dealt is determined by:
+			Physical
+				--(((Strength + Weapon Strength) + (Weapon Tier * Weapon Level))* (1 + Weapon Proficiency/100)) - Target's Defense
+				--if Critical, + Critical Bonus
+				--if Elemental, a second round of damage is dealt
+					-- ((Personal Elemental Damage + Weapon Elemental Damage) * (1 + Weapon/Proficiency/100)) - Target's Elemental Resistance
+			Magical
+				--(((Intelligence + Weapon Intelligence) + (Spell Tier * Spell Level)) * (1 + Weapon Proficiency/100)) - Target's Resistance
+				--if Critical, + Critical Bonus
+				--if Elemental, a second round of damage is dealt
+				  -- (((Personal Elemental Damage + Spell Elemental Damage) + (Spell Tier * Spell Level)) * (1 + Weapon Proficiency/100)) - Target's Resistance
+	Level Generation:
+		Every map has an assigned Difficulty level, starting at 1 and increasing (theoretically) infinitely
+		Every map will have a pseudorandom number of enemies based on the size of the map.
+			We take the total size of the map and cut it in half. Get a random number between 1 and that value. Hold onto this value.
+			We take that value and cut it in half again, and again take a random number between 1 and the new value. Hold onto this value.
+			"Flip a coin." Heads we add the values, tails we subtract the second one.
+			"Flip another coin." Heads we add 2, tails we subtract 2.
+
+			Ex:
+				8x8 Map.
+				64 squares -> random number between 1-32 -> 3 -> random number between 1 - 3 -> 3 -> "tails" -> 3 - 3 = 0 -> "heads" -> 0 + 2 = 2: The map will have 2 enemies
+				64 squares -> random number between 1-32 -> 26 -> random number between 1 - 13 -> 3 -> "tails" -> 26 - 3 = 23 -> "tails" -> 23 - 2 = 21: The map will have 21 enemies
+				64 squares -> random number between 1-32 -> 17 -> random number between 1 - 13 -> 1 -> "heads" -> 17 + 1 = 23 -> "tails" -> 17 - 2 = 15: The map will have 15 enemies
+		Every map will have a "Deployment Zone"
+			A particular square will be designated the "center," and the Player will be allowed to deploy as many characters as they wish within 4 squares at the start of a battle

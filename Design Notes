@@ -58,6 +58,8 @@ Characters:
 			-Botanist: 9 or (
 			-Miner: 0 or )
 			-Painter: 1 or !
+			-Ruffian: r or R
+			-Squire: q or Q
 			-Survivor: s or S
 		Characters have an affiliation, to tell at a glance if they are a friend or foe
 			-Player controlled: P
@@ -86,7 +88,7 @@ Glossary:
 				-Alchemists are masters of practical Chemimancy and can use gathered materials to craft potions and Chemimantic spells
 				-Alchemists wield Alembics, and a character must have at least an Alembic Proficiency of 1+ to change classes to an Alchemist
 				-Map symbol - "5" when unactive, and "%" when active
-				-Alchemists gain EXP via Alchemy crafting
+				-Alchemists gain EXP via Alchemy crafting; Alchemists gain Alembic Proficiency at 1x the normal rate
 				-Class Parameters:
 					-Mov: -2
 					-Character becomes available for Alchemy crafting
@@ -97,7 +99,7 @@ Glossary:
 				-Anchorites are masters of practical Physimancy and can use gathered materials to craft accessories and Physimantic spells
 				-Anchorites wield Chapters, and a character must have at least a Chapter Proficiency of 1+ to change classes to an Anchorite
 				-Map symbol - "2" when unactive, and "@" when active
-				-Anchorites gain EXP via Anchory crafting
+				-Anchorites gain EXP via Anchory crafting; Anchorites gain Chapter Proficiency at 1x the normal rate
 				-Class Parameters:
 					-Mov: -4
 					-Character becomes available for Anchory crafting
@@ -108,7 +110,7 @@ Glossary:
 				-Blacksmiths are masters of practical Geomancy and can use gathered materials to craft weapons, armor and Geomantic spells
 				-Blacksmiths wield Hammers, and a character must have at least a Hammer Proficiency of 1+ to change classes to a Blacksmith
 				-Map symbol - "6" when unactive, and "^" when active
-				-Blacksmiths gain EXP via Blacksmithing crafting
+				-Blacksmiths gain EXP via Blacksmithing crafting; Blacksmiths gain Hammer Proficiency at 1x the normal rate
 				-Class Parameters:
 					-Mov: -1
 					-Character becomes available for Blacksmithing crafting
@@ -119,7 +121,7 @@ Glossary:
 				-Botanists can seek out locations likely to provide large amounts of Herbs and Flowers for gathering, as well as gather from them more effectively
 				-Botanists wield Sickles, and a character must have at least a Sickle Proficiency of 1+ to change classes to a Botanist
 				-Map symbol - "9" when unactive, and "(" when active
-				-Botanists gain EXP by gathering Herbs or Flowers
+				-Botanists gain EXP by gathering Herbs or Flowers; Botanists gain Sickle Proficiency at 1x the normal rate
 				-Class Parameters:
 					-Mov: +3
 					-Unlock the Camp Action "Harvest," if it is not already available
@@ -132,7 +134,7 @@ Glossary:
 				-Miners can seek out locations likely to provide large amounts of Ore and Gems for gathering, as well as gather from them more effectively
 				-Miners wield Pickaxes, and a character must have at least a Pickaxe Proficiency of 1+ to change classes to a Miner
 				-Map symbol - "0" when unactive, and ")" when active
-				-Miners gain EXP by gathering Ore and Gems
+				-Miners gain EXP by gathering Ore and Gems; Miners gain Pickaxe Proficiency at 1x the normal rate
 				-Class Parameters:
 					-Mov: +3
 					-Unlock the Camp Action "Spelunk," if it is not already available
@@ -145,7 +147,7 @@ Glossary:
 				-Painters are masters of practical Astromancy and can use gathered materials to craft other materials and Astromantic spells
 				-Painters wield Brushes, and a character must have at least a Brush Proficiency of 1+ to change classes to a Painter
 				-Map symbol - "1" when unactive, or "!" when active
-				-Painters gain EXP via Painting crafting
+				-Painters gain EXP via Painting crafting; Painters gain Brush Proficiency at 1x the normal rate
 				-Class Parameters:
 					-Mov: -2
 					-Character becomes available for Painting crafting (create crafting materials and Astromantic spells)
@@ -153,13 +155,42 @@ Glossary:
 					-HP: +1
 					-Int: +3
 		Physical:
+			Ruffian:
+				-Ruffians are a starter physical damage class, and can use all weapons in battle, with varying efficacy
+				-Ruffians wield Fists, Shields, and Axes most effectively, and a character must have a Fist, Shield, or Axe Proficiency of 1+ to change classes to Ruffian
+				-Map symbol - 'r' when unactive, and "R" when active
+				-Ruffians gain EXP from combat; Ruffians gain Fist, Shield, or Axe Proficiency at 1.2x the normal rate, and all other weapons at .5x
+				-Class Parameters:
+					-Any magic becomes unusable during combat
+					-Gain the Enraged buff after taking damage for two turns
+				On Level-up:
+					-HP: +13
+					-Str: +7
+					-Def: +4
+					-Res: +1
+			Squire:
+				-Squires are a starter physical damage class, and can use all weapons in battle, with varying efficacy
+				-Squires wield Swords, Shields, and Spears most effectively, and a character must have a Sword, Shield, or Spear Proficiency of 1+ to change classes to a Squire
+				-Map symbol - "q" when unactive, and "Q" when active
+				-Squires gain EXP from combat; Squires gain Sword, Shield, and Spear Proficiency at 1.2x the normal rate, and all other weapons at .5x
+				-Class Parameters:
+					-Any magic becomes unusable during combat
+					-Gain the Excited buff after killing an enemy for two turns
+				-On Level-up:
+					-HP: +10
+					-Str: +5
+					-Def: +3
+					-Res: +1
+					-Acc: +2
+					-Spd: +2
+					-CrC: +2
 			Survivor:
 				-Survivors are new characters who have no class, no proficiency, and no skills in or out of combat. They are able to use all weapons, but gain no EXP in battle
 				 towards leveling up. They are also the only "Combat" class which is able to use any of the four crafting types (Alchemy, Anchory, Blacksmithing, or Painting),
 				 or two gathering types, (Mining or Botany). However, they may gain weapon proficiency only to 1
 				-Survivors wield no particular weapon, and all characters start as Survivors when recruited
 				-Map symbol - "s" when unactive, and "S" when active
-				-Survivors gain no EXP from any source, and may only progress to 1 Proficiency for any weapon type
+				-Survivors gain no EXP from any source, and may only progress to 1 Proficiency for any weapon type; Survivors gain all proficiencies at 1x the normal rate, and 0x at 1
 				-Class Parameters:
 					-Cannot change to Survivor, only from, thus no changes
 					-Character can use any weapon and any type of crafting/gathering
@@ -242,7 +273,7 @@ Glossary:
 	Materials:
 		Dyes:	Painting materials
 		Flowers: Crafting materials gathered by Botanists, used to create Painting Dyes
-		Focuses: Anchory materials 
+		Focuses: Anchory materials
 		Gems: Crafting materials gathered by Miners, used to create Anchory Focuses
 		Herbs: Crafting materials gathered by Botanists, used to create Alchemy Reagents
 		Ingots: Blacksmithing materials
@@ -278,7 +309,9 @@ Glossary:
 		Charged: Increased Thunder Resistance, lowered Water Resistance
 		Chilled: Increased Ice Resistance, lowered Fire Resistance
 		Drenched: Increased Water Resistance, lowered Thunder Resistance
+		Enraged: Defense increased by 1.1x, EXP gained multiplied by .75x
 		Envenomated: Health drain every turn
+		Excited: Physical damage multiplied 1.5x, EXP gained multiplied by .75x
 		Heated: Increased Fire Resistance, lowered Ice Resistance
 		Paralyzed: Unable to use weapons
 		Petrified: Unable to take any action, immune to magic damage, may shatter from physical damage and die instantly

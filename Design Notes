@@ -52,16 +52,24 @@ Characters:
 		Accessory Two:
 	Character markers
 		Characters have a symbol (designated by their class), which is displayed on the map. It is capitalized when the character is active. These symbols are:
+			-Acolyte: o or O
 			-Alchemist: 5 or %
 			-Anchorite: 2 or @
+			-Astrologer: a or A
 			-Blacksmith: 6 or ^
 			-Botanist: 9 or (
-			-Hunter: h or H
+			-Conjurer: c or C
+			-Disciple: d or D
+			-Enchanter: e or E
 			-Miner: 0 or )
 			-Painter: 1 or !
+			-Piercer: p or P
 			-Ruffian: r or R
+			-Shaman: s or S
 			-Squire: q or Q
-			-Survivor: s or S
+			-Survivor: - or _
+			-Upholder: u or U
+			-Yeoman: y or Y
 		Characters have an affiliation, to tell at a glance if they are a friend or foe
 			-Player controlled: P
 			-Enemy controlled: E
@@ -83,7 +91,129 @@ Glossary:
 				Generate a special map which will have a significantly increased number of Ores and Gems, no Herbs or Flowers, and will be a Cave-type or Mine-type
 	Classes:
 		Hybrid:
+			Acolyte:
+				-Acolytes are a starter hybrid class, and can use Axes and Staffs in battle, as well as Geomantic spells at reduced efficacy
+				-Acolytes may only wield Axes and Staffs, and a character must have Axe and Staff Proficiency of 1+ each to change classes to an Acolyte
+				-Map symbol - 'o' when unactive, and "O" when active
+				-Acolytes gain EXP from combat; Acolytes gain Axe and Staff Proficiency at 1.5x the normal rate, and may not use any other weapon
+				-Class Parameters:
+					-Restricted to Axes and Staffs
+					-Gain access to Geomantic spells during combat
+					-Staff Proficiency reduced by 50% for spell calculation and usage
+				-On Level-up:
+					-HP: +8
+					-MP: +4
+					-Str: +4
+					-Def: +6
+					-Spd: +3
+			Disciple:
+				-Disciples are a starter hybrid class, and can use Swords and Staffs in battle, as well as Astromantic spells at reduced efficacy
+				-Disciples may only wield Swords and Staffs, and a character must have Sword and Staff Proficiency of 1+ each to change classes to a Disciple
+				-Map symbol - 'd' when unactive, and "D" when active
+				-Disciples gain EXP from combat; Disciples gain Sword and Staff Proficiency at 1.5x the normal rate, and may not use any other weapons
+				-Class Parameters:
+					-Restricted to Swords and Staffs
+					-Gain access to Astromantic spells during combat
+					-Staff Proficiency reduced by 50% for spell calculation and usage
+				-On Level-up:
+					-HP: +10
+					-MP: +2
+					-Str: +3
+					-Def: +1
+					-Int: +2
+					-Spd: +7
+			Piercer:
+				-Piercers are a starter hybrid class, and can use Guns and Staffs in battle, as well as Physimantic spells at reduced efficacy
+				-Piercers may only wield Guns and Staffs, and a character must have Gun and Staff Proficiency of 1+ each to change classes to a Piercer
+				-Map symbol - 'p' when unactive, and "P" when active
+				-Piercers gain EXP from combat; Piercers gain Gun and Staff Proficiency at 1.5x the normal rate, and may not use any other weapons
+				-Class Parameters:
+					-Restricted to Guns and Staffs
+					-Gain access to Physimantic spells during combat
+					-Staff Proficiency reduced by 50% for spell calculation and usage
+				-On Level-up
+					-HP: +5
+					-MP: +6
+					-Def: +2
+					-Int: +6
+					-Acc: +5
+					-CrB: +1
+			Upholder:
+				-Upholders are a starter hybrid class, and can use Spears and Staffs in battle, as well as Chemimantic spells at reduced efficacy
+				-Upholders may only wield Spears and Staffs, and a character must have Spear and Staff Proficiency of 1+ each to change classes to an Upholder
+				-Map symbol - 'u' when unactive, and "U" when active
+				-Upholders gain EXP from combat; Upholders gain Spear and Staff Proficiency at 1.5x the normal rate, and may not use other weapons
+				-Class Parameters:
+				 	-Restricted to Spears and Staffs
+					-Gain access to Chemimantic spells during combat
+					-Staff Proficiency reduced by 50% for spell calculation and usage
+				-On Level-up:
+					-HP: +7
+					-MP: +3
+					-Str: +2
+					-Def: +4
+					-Int: +2
+					-Res: +5
+					-Acc: +2
 		Magic:
+			Astrologer:
+				-Astrologers are a starter Astromancy class, and can use all weapons in battle, with varying efficacy
+				-Astrologers wield Staffs most effectively, and a character must have a Staff Proficiency of 1+ to change classes to an Astrologer
+				-Map symbol - 'a' when unactive, and "A" when active
+				-Astrologers gain EXP from combat; Astrologers gain Staff Proficiency at 1.2x the normal rate, and all other weapons at .5x
+				-Class Parameters:
+					-Gain access to Astromantic spells during combat
+					-Mov: +1
+				-On Level-up:
+					-HP: +3
+					-MP: +2
+					-Def: +1
+					-Int: +7
+					-Res: +5
+					-Spd: +7
+			Conjurer:
+				-Conjurers are a starter Chemimancy class, and can use all weapons in battle, with varying efficacy
+				-Conjurers wield Staffs most effectively, and a character must have a Staff Proficiency of 1+ to change classes to a Conjurer
+				-Map symbol - 'c' when unactive, and "C" when active
+				-Conjurers gain EXP from combat; Conjurers gain Staff Proficiency at 1.2x the normal rate, and all other weapons at .5x
+				-Class Parameters:
+					-Gain access to Chemimantic spells during combat
+					-Res: +1%
+				On Level-up:
+					-HP: +5
+					-MP: +5
+					-Def: +1
+					-Int: +6
+					-Res: +8
+			Enchanter:
+				-Enchanters are a starter Physimancy class, and can use all weapons in battle, with varying efficacy
+				-Enchanters wield Staffs most effectively, and a character must have a Staff Proficiency of 1+ to change classes to an Enchanter
+				-Map symbol - 'e' when unactvie, and "E" when active
+				-Enchanters gain EXP from combat; Enchanters gain Staff Proficiency at 1.2x the normal rate, and all other weapons at .5x
+				-Class Parameters:
+					-Gain access to Physimantic spells during combat
+					-Int: +1%
+				-On Level-up:
+					-HP: +2
+					-MP: +7
+					-Def: +1
+					-Int: + 10
+					-Res: +5
+			Shaman:
+				-Shamans are a starter Geomancy class, and can use all weapons in battle, with varying efficacy
+				-Shamans wield Staffs most effectively, and a character must have a Staff Proficiency of 1+ to change classes to a Shaman
+				-Map symbol - 's' when unactive, and "S" when active
+				-Shamans gain EXP from combat; Shamans gain Staff Proficiency at 1.2x the normal rate, and all other weapons at .5x
+				-Class Parameters:
+					-Gain access to Geomantic spells during combat
+					-Def: +1%
+				-On Level-up:
+					-HP: +6
+					-MP: +4
+					-Def: +8
+					-Int: +2
+					-Res: +2
+					-Spd: +3
 		Non-combat:
 			Alchemist:
 				-Alchemists are masters of practical Chemimancy and can use gathered materials to craft potions and Chemimantic spells
@@ -156,23 +286,6 @@ Glossary:
 					-HP: +1
 					-Int: +3
 		Physical:
-			Hunter:
-				-Hunters are a starter physical damage class, and can use all weapons in battle, with varying efficacy
-				-Hunters wield Bows and Guns most effectively, and a character must have a Bow or Gun Proficiency of 1+ to change classes to a Hunter
-				-Map symbol - 'h' when unactive, and "H" when active
-				-Hunters gain EXP from combat; Hunters gain Bow and Gun Proficiency at 1.2x the normal rate, and all other weapons at .5x
-				-Class Parameters:
-					-Any magic becomes unusable during combat
-					-Gain the Steady buff after hitting a target
-				-On Level-up:
-					-HP: +7
-					-Str: +2
-					-Def: +2
-					-Res: +2
-					-Acc: +7
-					-Spd: +3
-					-CrC: +1
-					-Crc: +1
 			Ruffian:
 				-Ruffians are a starter physical damage class, and can use all weapons in battle, with varying efficacy
 				-Ruffians wield Fists, Shields, and Axes most effectively, and a character must have a Fist, Shield, or Axe Proficiency of 1+ to change classes to Ruffian
@@ -207,13 +320,30 @@ Glossary:
 				 towards leveling up. They are also the only "Combat" class which is able to use any of the four crafting types (Alchemy, Anchory, Blacksmithing, or Painting),
 				 or two gathering types, (Mining or Botany). However, they may gain weapon proficiency only to 1
 				-Survivors wield no particular weapon, and all characters start as Survivors when recruited
-				-Map symbol - "s" when unactive, and "S" when active
+				-Map symbol - "-" when unactive, and "_" when active
 				-Survivors gain no EXP from any source, and may only progress to 1 Proficiency for any weapon type; Survivors gain all proficiencies at 1x the normal rate, and 0x at 1
 				-Class Parameters:
 					-Cannot change to Survivor, only from, thus no changes
 					-Character can use any weapon and any type of crafting/gathering
 				-On Level-up:
 					-Survivors cannot Level-up
+			Yeoman:
+				-Yeomen are a starter physical damage class, and can use all weapons in battle, with varying efficacy
+				-Yeomen wield Bows and Guns most effectively, and a character must have a Bow or Gun Proficiency of 1+ to change classes to a Yeoman
+				-Map symbol - 'h' when unactive, and "H" when active
+				-Yeomen gain EXP from combat; Yeomen gain Bow and Gun Proficiency at 1.2x the normal rate, and all other weapons at .5x
+				-Class Parameters:
+					-Any magic becomes unusable during combat
+					-Gain the Steady buff after hitting a target
+				-On Level-up:
+					-HP: +7
+					-Str: +2
+					-Def: +2
+					-Res: +2
+					-Acc: +7
+					-Spd: +3
+					-CrC: +1
+					-Crc: +1
 	Crafting:
 		Alchemy: create potions and Chemimantic spells out of Reagents
 		Anchory: create accessories and Physimantic spells out of Focuses

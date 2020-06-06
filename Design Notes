@@ -56,6 +56,7 @@ Characters:
 			-Anchorite: 2 or @
 			-Blacksmith: 6 or ^
 			-Botanist: 9 or (
+			-Hunter: h or H
 			-Miner: 0 or )
 			-Painter: 1 or !
 			-Ruffian: r or R
@@ -155,6 +156,23 @@ Glossary:
 					-HP: +1
 					-Int: +3
 		Physical:
+			Hunter:
+				-Hunters are a starter physical damage class, and can use all weapons in battle, with varying efficacy
+				-Hunters wield Bows and Guns most effectively, and a character must have a Bow or Gun Proficiency of 1+ to change classes to a Hunter
+				-Map symbol - 'h' when unactive, and "H" when active
+				-Hunters gain EXP from combat; Hunters gain Bow and Gun Proficiency at 1.2x the normal rate, and all other weapons at .5x
+				-Class Parameters:
+					-Any magic becomes unusable during combat
+					-Gain the Steady buff after hitting a target
+				-On Level-up:
+					-HP: +7
+					-Str: +2
+					-Def: +2
+					-Res: +2
+					-Acc: +7
+					-Spd: +3
+					-CrC: +1
+					-Crc: +1
 			Ruffian:
 				-Ruffians are a starter physical damage class, and can use all weapons in battle, with varying efficacy
 				-Ruffians wield Fists, Shields, and Axes most effectively, and a character must have a Fist, Shield, or Axe Proficiency of 1+ to change classes to Ruffian
@@ -317,6 +335,7 @@ Glossary:
 		Petrified: Unable to take any action, immune to magic damage, may shatter from physical damage and die instantly
 		Silenced: Unable to cast magic
 		Sleep: Unable to take any action, effect ended by physical damage, take increased magic damage
+		Steady: Guaranteed Critical hit targeting the same space a second time
 		Intoxicated: Mana drain every turn
 	Weapons:
 		Fist:

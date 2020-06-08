@@ -1,8 +1,10 @@
-#include "BaseCharacter.h"
 #include <string>
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
+
+#include "BaseCharacter.h"
+#include "EClasses.h"
 
 //Getters and Setters------------------------------------------------
 int Entities::BaseCharacter::GetCreationId()
@@ -21,11 +23,19 @@ void Entities::BaseCharacter::SetName(std::string PName)
 {
 	Name = PName;
 }
-std::string Entities::BaseCharacter::GetClass()
+Entities::GenericClass Entities::BaseCharacter::GetClass()
 {
-	return Class;
+	switch (Class)
+	{
+	case PLACEHOLDER:
+		Entities::Placeholder Placeholder;
+		return Placeholder;
+	}
+	Entities::GenericClass Placeholder;
+	return Placeholder;
+	
 }
-void Entities::BaseCharacter::SetClass(std::string PClass)
+void Entities::BaseCharacter::SetClass(EClasses PClass)
 {
 	Class = PClass;
 }
@@ -45,6 +55,7 @@ void Entities::BaseCharacter::SetAffiliation(std::string PAffiliation)
 {
 	Affiliation = PAffiliation;
 }
+
 int Entities::BaseCharacter::GetLevel()
 {
 	return Level;

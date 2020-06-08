@@ -2,6 +2,9 @@
 #include <string>
 #include <iostream>
 
+#include "EClasses.h"
+#include "GenericClass.h"
+
 namespace Entities
 {
 	class BaseCharacter
@@ -12,8 +15,8 @@ namespace Entities
 		void SetCreationId(int PCreationId);
 		std::string GetName();
 		void SetName(std::string Name);
-		std::string GetClass();
-		void SetClass(std::string Class);
+		Entities::GenericClass GetClass();
+		void SetClass(EClasses Class);
 		std::string GetSymbol();
 		void SetSymbol(std::string Symbol);
 		std::string GetAffiliation();
@@ -124,7 +127,7 @@ namespace Entities
 		//---------------------------------------------------
 	private:
 		std::string Name = "Replica";
-		std::string Class = "BaseCharacter";
+		EClasses Class = PLACEHOLDER;
 		
 		//The symbol to be placed on the game map to represent this character
 		std::string Symbol = " ";

@@ -330,7 +330,7 @@ Glossary:
 			Yeoman:
 				-Yeomen are a starter physical damage class, and can use all weapons in battle, with varying efficacy
 				-Yeomen wield Bows and Guns most effectively, and a character must have a Bow or Gun Proficiency of 1+ to change classes to a Yeoman
-				-Map symbol - 'h' when unactive, and "H" when active
+				-Map symbol - 'y' when unactive, and "Y" when active
 				-Yeomen gain EXP from combat; Yeomen gain Bow and Gun Proficiency at 1.2x the normal rate, and all other weapons at .5x
 				-Class Parameters:
 					-Any magic becomes unusable during combat

@@ -15,7 +15,7 @@ namespace Entities
 		void SetCreationId(int PCreationId);
 		std::string GetName();
 		void SetName(std::string Name);
-		Entities::GenericClass GetClass();
+		Entities::GenericClass* GetClass();
 		void SetClass(EClasses Class);
 		std::string GetSymbol();
 		void SetSymbol(std::string Symbol);

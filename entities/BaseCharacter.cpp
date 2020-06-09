@@ -23,17 +23,69 @@ void Entities::BaseCharacter::SetName(std::string PName)
 {
 	Name = PName;
 }
-Entities::GenericClass Entities::BaseCharacter::GetClass()
+Entities::GenericClass* Entities::BaseCharacter::GetClass()
 {
 	switch (Class)
 	{
+	case ACOLYTE:
+		Entities::Acolyte* Acolyte;
+		return Acolyte;
+	case ALCHEMIST:
+		Entities::Alchemist* Alchemist;
+		return Alchemist;
+	case ANCHORITE:
+		Entities::Anchorite* Anchorite;
+		return Anchorite;
+	case ASTROLOGER:
+		Entities::Astrologer* Astrologer;
+		return Astrologer;
+	case BLACKSMITH:
+		Entities::Blacksmith* Blacksmith;
+		return Blacksmith;
+	case BOTANIST:
+		Entities::Botanist* Botanist;
+		return Botanist;
+	case CONJURER:
+		Entities::Conjurer* Conjurer;
+		return Conjurer;
+	case DISCIPLE:
+		Entities::Disciple* Disciple;
+		return Disciple;
+	case ENCHANTER:
+		Entities::Enchanter* Enchanter;
+		return Enchanter;
+	case MINER:
+		Entities::Miner* Miner;
+		return Miner;
+	case PAINTER:
+		Entities::Painter* Painter;
+		return Painter;
+	case PIERCER:
+		Entities::Piercer* Piercer;
+		return Piercer;
+	case RUFFIAN:
+		Entities::Ruffian* Ruffian;
+		return Ruffian;
+	case SHAMAN:
+		Entities::Shaman* Shaman;
+		return Shaman;
+	case SQUIRE:
+		Entities::Squire* Squire;
+		return Squire;
+	case SURVIVOR:
+		Entities::Survivor* Survivor;
+		return Survivor;
+	case UPHOLDER:
+		Entities::Upholder* Upholder;
+		return Upholder;
+	case YEOMAN:
+		Entities::Yeoman* Yeoman;
+		return  Yeoman;
 	case PLACEHOLDER:
-		Entities::Placeholder Placeholder;
+	default:
+		Entities::Placeholder* Placeholder;
 		return Placeholder;
 	}
-	Entities::GenericClass Placeholder;
-	return Placeholder;
-	
 }
 void Entities::BaseCharacter::SetClass(EClasses PClass)
 {

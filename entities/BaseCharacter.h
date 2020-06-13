@@ -120,6 +120,7 @@ namespace Entities
 		void GetCompleteStatus();
 		void AttackTarget(Entities::BaseCharacter& target);
 		int Crit(int CriticalChance, int DamageDealt);
+		void LevelUp();
 		//---------------------------------------------------
 
 		//Overloads------------------------------------------

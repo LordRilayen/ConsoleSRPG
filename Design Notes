@@ -219,7 +219,7 @@ Glossary:
 				-Alchemists are masters of practical Chemimancy and can use gathered materials to craft potions and Chemimantic spells
 				-Alchemists wield Alembics, and a character must have at least an Alembic Proficiency of 1+ to change classes to an Alchemist
 				-Map symbol - "5" when unactive, and "%" when active
-				-Alchemists gain EXP via Alchemy crafting; Alchemists gain Alembic Proficiency at 1x the normal rate
+				-Alchemists gain EXP via Alchemy crafting; Alchemists gain Alembic Proficiency at 1x the normal rate, and gain no proficiency for any other weapon
 				-Class Parameters:
 					-Mov: -2
 					-Character becomes available for Alchemy crafting
@@ -230,7 +230,7 @@ Glossary:
 				-Anchorites are masters of practical Physimancy and can use gathered materials to craft accessories and Physimantic spells
 				-Anchorites wield Chapters, and a character must have at least a Chapter Proficiency of 1+ to change classes to an Anchorite
 				-Map symbol - "2" when unactive, and "@" when active
-				-Anchorites gain EXP via Anchory crafting; Anchorites gain Chapter Proficiency at 1x the normal rate
+				-Anchorites gain EXP via Anchory crafting; Anchorites gain Chapter Proficiency at 1x the normal rate, and gain no proficiency for any other weapon
 				-Class Parameters:
 					-Mov: -4
 					-Character becomes available for Anchory crafting
@@ -241,7 +241,7 @@ Glossary:
 				-Blacksmiths are masters of practical Geomancy and can use gathered materials to craft weapons, armor and Geomantic spells
 				-Blacksmiths wield Hammers, and a character must have at least a Hammer Proficiency of 1+ to change classes to a Blacksmith
 				-Map symbol - "6" when unactive, and "^" when active
-				-Blacksmiths gain EXP via Blacksmithing crafting; Blacksmiths gain Hammer Proficiency at 1x the normal rate
+				-Blacksmiths gain EXP via Blacksmithing crafting; Blacksmiths gain Hammer Proficiency at 1x the normal rate, and gain no proficiency for any other weapon
 				-Class Parameters:
 					-Mov: -1
 					-Character becomes available for Blacksmithing crafting
@@ -252,7 +252,7 @@ Glossary:
 				-Botanists can seek out locations likely to provide large amounts of Herbs and Flowers for gathering, as well as gather from them more effectively
 				-Botanists wield Sickles, and a character must have at least a Sickle Proficiency of 1+ to change classes to a Botanist
 				-Map symbol - "9" when unactive, and "(" when active
-				-Botanists gain EXP by gathering Herbs or Flowers; Botanists gain Sickle Proficiency at 1x the normal rate
+				-Botanists gain EXP by gathering Herbs or Flowers; Botanists gain Sickle Proficiency at 1x the normal rate, and gain no proficiency for any other weapon
 				-Class Parameters:
 					-Mov: +3
 					-Unlock the Camp Action "Harvest," if it is not already available
@@ -265,7 +265,7 @@ Glossary:
 				-Miners can seek out locations likely to provide large amounts of Ore and Gems for gathering, as well as gather from them more effectively
 				-Miners wield Pickaxes, and a character must have at least a Pickaxe Proficiency of 1+ to change classes to a Miner
 				-Map symbol - "0" when unactive, and ")" when active
-				-Miners gain EXP by gathering Ore and Gems; Miners gain Pickaxe Proficiency at 1x the normal rate
+				-Miners gain EXP by gathering Ore and Gems; Miners gain Pickaxe Proficiency at 1x the normal rate, and gain no proficiency for any other weapon
 				-Class Parameters:
 					-Mov: +3
 					-Unlock the Camp Action "Spelunk," if it is not already available
@@ -278,7 +278,7 @@ Glossary:
 				-Painters are masters of practical Astromancy and can use gathered materials to craft other materials and Astromantic spells
 				-Painters wield Brushes, and a character must have at least a Brush Proficiency of 1+ to change classes to a Painter
 				-Map symbol - "1" when unactive, or "!" when active
-				-Painters gain EXP via Painting crafting; Painters gain Brush Proficiency at 1x the normal rate
+				-Painters gain EXP via Painting crafting; Painters gain Brush Proficiency at 1x the normal rate, and gain no proficiency for any other weapon
 				-Class Parameters:
 					-Mov: -2
 					-Character becomes available for Painting crafting (create crafting materials and Astromantic spells)

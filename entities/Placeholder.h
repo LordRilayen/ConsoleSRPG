@@ -13,8 +13,8 @@ namespace Entities
 		//------------------------------------
 
 		//practical functions-----------------
-		void LevelUp();
-		void GetStatAtLevel();
+		void LevelUp(Entities::BaseCharacter* PtrCharacter);
+		int GetStatAtLevel(Entities::BaseCharacter* PtrCharacter, std::string PStat, int PLevels);
 		void SetParameters();
 		//------------------------------------
 	private:

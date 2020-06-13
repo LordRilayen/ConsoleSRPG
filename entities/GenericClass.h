@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 #include "BaseCharacter.h"
 
@@ -13,8 +14,8 @@ namespace Entities
 		//------------------------------------
 
 		//practical functions-----------------
-		virtual void LevelUp() = 0;
-		virtual void GetStatAtLevel() = 0;
+		virtual void LevelUp(Entities::BaseCharacter* PtrCharacter) = 0;
+		virtual int GetStatAtLevel(Entities::BaseCharacter* PtrCharacter, std::string PStat, int PLevels) = 0;
 		virtual void SetParameters() = 0;
 		//------------------------------------
 	private:

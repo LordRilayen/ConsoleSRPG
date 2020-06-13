@@ -1,6 +1,6 @@
-#include <string>
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
+#include <string>
 #include <time.h>
 
 #include "BaseCharacter.h"
@@ -540,6 +540,11 @@ int Entities::BaseCharacter::Crit(int PCriticalChance, int PDamageDealt)
 		std::cout << "CRIT!" << std::endl;
 	}
 	return PDamageDealt;
+}
+
+void Entities::BaseCharacter::LevelUp()
+{
+	GetClass()->LevelUp(this);
 }
 //------------------------------------------------------------------
 

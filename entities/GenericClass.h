@@ -6,6 +6,8 @@
 
 namespace Entities
 {
+	class BaseCharacter;
+
 	class GenericClass
 	{
 	public:
@@ -14,9 +16,9 @@ namespace Entities
 		//------------------------------------
 
 		//practical functions-----------------
-		virtual void LevelUp(Entities::BaseCharacter* PtrCharacter) = 0;
-		virtual int GetStatAtLevel(Entities::BaseCharacter* PtrCharacter, std::string PStat, int PLevels) = 0;
-		virtual void SetParameters() = 0;
+		virtual void LevelUp(Entities::BaseCharacter PtrCharacter) = 0;
+		virtual int GetStatAtLevel(Entities::BaseCharacter *PtrCharacter, std::string PStat, int PLevels) = 0;
+		virtual void SetParameters(Entities::BaseCharacter *PtrCharacter) = 0;
 		//------------------------------------
 	private:
 		std::string MapSymbol;

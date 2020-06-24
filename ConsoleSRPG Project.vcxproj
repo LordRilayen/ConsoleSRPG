@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{41EEBD71-D382-45F3-B800-92C905BC3B60}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="entities\Acolyte.cpp" />
+    <ClCompile Include="entities\BaseCharacter.cpp" />
+    <ClCompile Include="entities\Placeholder.cpp" />
+    <ClCompile Include="game\ConsoleSRPG.cpp" />
+    <ClCompile Include="game\GameLoop.cpp" />
+    <ClCompile Include="generators\CharacterGenerator.cpp" />
+    <ClCompile Include="generators\EnemyGenerator.cpp" />
+    <ClCompile Include="generators\MapGenerator.cpp" />
+    <ClCompile Include="geography\Map.cpp" />
+    <ClCompile Include="geography\MapSquare.cpp" />
+    <ClCompile Include="levels\TestFiveXFive.cpp" />
+    <ClCompile Include="loot\Item.cpp" />
+    <ClCompile Include="player\Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="entities\Acolyte.h" />
+    <ClInclude Include="entities\Alchemist.h" />
+    <ClInclude Include="entities\Anchorite.h" />
+    <ClInclude Include="entities\Astrologer.h" />
+    <ClInclude Include="entities\BaseCharacter.h" />
+    <ClInclude Include="entities\Blacksmith.h" />
+    <ClInclude Include="entities\Botanist.h" />
+    <ClInclude Include="entities\Conjurer.h" />
+    <ClInclude Include="entities\Disciple.h" />
+    <ClInclude Include="entities\EClasses.h" />
+    <ClInclude Include="entities\Enchanter.h" />
+    <ClInclude Include="entities\GenericClass.h" />
+    <ClInclude Include="entities\Miner.h" />
+    <ClInclude Include="entities\Painter.h" />
+    <ClInclude Include="entities\Piercer.h" />
+    <ClInclude Include="entities\Placeholder.h" />
+    <ClInclude Include="entities\Ruffian.h" />
+    <ClInclude Include="entities\Shaman.h" />
+    <ClInclude Include="entities\Squire.h" />
+    <ClInclude Include="entities\Survivor.h" />
+    <ClInclude Include="entities\Upholder.h" />
+    <ClInclude Include="entities\Yeoman.h" />
+    <ClInclude Include="game\GameLoop.h" />
+    <ClInclude Include="generators\CharacterGenerator.h" />
+    <ClInclude Include="generators\EnemyGenerator.h" />
+    <ClInclude Include="generators\MapGenerator.h" />
+    <ClInclude Include="geography\Map.h" />
+    <ClInclude Include="geography\MapSquare.h" />
+    <ClInclude Include="levels\TestFiveXFive.h" />
+    <ClInclude Include="loot\Accessory.h" />
+    <ClInclude Include="loot\Alembic.h" />
+    <ClInclude Include="loot\Armor.h" />
+    <ClInclude Include="loot\Axe.h" />
+    <ClInclude Include="loot\Bow.h" />
+    <ClInclude Include="loot\Brush.h" />
+    <ClInclude Include="loot\Chapter.h" />
+    <ClInclude Include="loot\Consumable.h" />
+    <ClInclude Include="loot\Dye.h" />
+    <ClInclude Include="loot\EMagic.h" />
+    <ClInclude Include="loot\Equipment.h" />
+    <ClInclude Include="loot\EWeapons.h" />
+    <ClInclude Include="loot\Fist.h" />
+    <ClInclude Include="loot\Flower.h" />
+    <ClInclude Include="loot\Focus.h" />
+    <ClInclude Include="loot\Gem.h" />
+    <ClInclude Include="loot\Gloves.h" />
+    <ClInclude Include="loot\Gun.h" />
+    <ClInclude Include="loot\Hammer.h" />
+    <ClInclude Include="loot\Helmet.h" />
+    <ClInclude Include="loot\Herb.h" />
+    <ClInclude Include="loot\Ingot.h" />
+    <ClInclude Include="loot\Item.h" />
+    <ClInclude Include="loot\Material.h" />
+    <ClInclude Include="loot\Ore.h" />
+    <ClInclude Include="loot\Pickaxe.h" />
+    <ClInclude Include="loot\Reagent.h" />
+    <ClInclude Include="loot\Shield.h" />
+    <ClInclude Include="loot\Sickle.h" />
+    <ClInclude Include="loot\Spear.h" />
+    <ClInclude Include="loot\Staff.h" />
+    <ClInclude Include="loot\Sword.h" />
+    <ClInclude Include="loot\Weapon.h" />
+    <ClInclude Include="player\Player.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

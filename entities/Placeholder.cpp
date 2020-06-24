@@ -19,7 +19,7 @@ int Entities::Placeholder::GetStatAtLevel(Entities::BaseCharacter* PtrCharacter,
 	std::cout << "ERROR: Placeholder class characters are not real, and should not be receiving stat modifications." << std::endl;
 	return 0;
 }
-void Entities::Placeholder::SetParameters()
+void Entities::Placeholder::SetParameters(Entities::BaseCharacter* PtrCharacter)
 {
 	std::cout << "ERROR: Placeholder class characters are not real, and should not be having parameters changed." << std::endl;
 }

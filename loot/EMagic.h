@@ -1,0 +1,9 @@
+#pragma once
+
+enum EMagic
+{
+	ASTROMANCY,
+	CHEMIMANCY,
+	GEOMANCY,
+	PHYSIMANCY
+};

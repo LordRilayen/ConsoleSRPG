@@ -1,10 +1,34 @@
 #include <cstdlib>
 #include <iostream>
+#include <map>
 #include <string>
 #include <time.h>
 
 #include "BaseCharacter.h"
+
+#include "Acolyte.h"
+#include "Alchemist.h"
+#include "Anchorite.h"
+#include "Astrologer.h"
+#include "Blacksmith.h"
+#include "Botanist.h"
+#include "Conjurer.h"
+#include "Disciple.h"
+#include "Enchanter.h"
+#include "Miner.h"
+#include "Painter.h"
+#include "Piercer.h"
+#include "Placeholder.h"
+#include "Ruffian.h"
+#include "Shaman.h"
+#include "Squire.h"
+#include "Survivor.h"
+#include "Upholder.h"
+#include "Yeoman.h"
 #include "EClasses.h"
+
+#include "../loot/EWeapons.h"
+#include "../loot/EMagic.h"
 
 //Getters and Setters------------------------------------------------
 int Entities::BaseCharacter::GetCreationId()
@@ -431,6 +455,31 @@ void Entities::BaseCharacter::SetAccessoryTwo(std::string PAcs2)
 	AccessoryTwo = PAcs2;
 }
 
+std::vector<EWeapons> Entities::BaseCharacter::GetUsableWeapons()
+{
+	return UsableWeapons;
+}
+void Entities::BaseCharacter::SetUsableWeapons(std::vector<EWeapons> PUsableWeapons)
+{
+	UsableWeapons = PUsableWeapons;
+}
+std::vector<EMagic> Entities::BaseCharacter::GetUsableMagic()
+{
+	return UsableMagic;
+}
+void Entities::BaseCharacter::SetUsableMagic(std::vector<EMagic> PUsableMagic)
+{
+	UsableMagic = PUsableMagic;
+}
+int Entities::BaseCharacter::GetFunctionalStaffProMod()
+{
+	return FunctionalStaffProMod;
+}
+void Entities::BaseCharacter::SetFunctionalStaffProMod(int PFunctionalStaffProMod)
+{
+	FunctionalStaffProMod = PFunctionalStaffProMod;
+}
+
 int Entities::BaseCharacter::GetXPosition()
 {
 	return XPosition;
@@ -470,7 +519,7 @@ void Entities::BaseCharacter::GetCompleteStatus()
 {
 	std::cout <<
 		"Name: " << Name << std::endl <<
-		"Class: " << Class << std::endl <<
+		"Class: " << TranslateClass(Class) << std::endl <<
 		"STATS " << std::endl <<
 		"Level: " << Level << std::endl <<
 		"HP: " << CurrentHealthPoints << "/" << MaxHealthPoints << std::endl <<
@@ -512,7 +561,16 @@ void Entities::BaseCharacter::GetCompleteStatus()
 		"Armor: " << Armor << std::endl <<
 		"Gloves: " << Gloves << std::endl <<
 		"Accessory One: " << AccessoryOne << std::endl <<
-		"Accessory Two: " << AccessoryTwo << std::endl;
+		"Accessory Two: " << AccessoryTwo << std::endl <<
+		"USABLE WEAPONS AND MAGIC" << std::endl;
+	for (int i = 0; i < UsableWeapons.size(); i++)
+	{
+		std::cout << std::to_string(UsableWeapons[i]) + ", " << std::endl;
+	}
+	for (int i = 0; i < UsableMagic.size(); i++)
+	{
+		std::cout << std::to_string(UsableMagic[i]) + ", " << std::endl;
+	}
 
 
 }
@@ -542,9 +600,66 @@ int Entities::BaseCharacter::Crit(int PCriticalChance, int PDamageDealt)
 	return PDamageDealt;
 }
 
-void Entities::BaseCharacter::LevelUp()
+std::string Entities::BaseCharacter::TranslateClass(int PClass)
 {
-	GetClass()->LevelUp(this);
+	switch (PClass)
+	{
+	case 0:
+		return "ACOLYTE";
+	case 1:
+		return "ALCHEMIST";
+	case 2:
+		return "ANCHORITE";
+	case 3:
+		return "ASTROLOGER";
+	case 4:
+		return "BLACKSMITH";
+	case 5:
+		return "BOTANIST";
+	case 6:
+		return "CONJURER";
+	case 7:
+		return "DISCIPLE";
+	case 8:
+		return "ENCHANTER";
+	case 9:
+		return "MINER";
+	case 10:
+		return "PAINTER";
+	case 11:
+		return "PIERCER";
+	case 12:
+		return "PLACEHOLDER";
+	case 13:
+		return "RUFFIAN";
+	case 14:
+		return "SHAMAN";
+	case 15:
+		return "SQUIRE";
+	case 16:
+		return "SURVIVOR";
+	case 17:
+		return "UPHOLDER";
+	case 18:
+		return "YEOMAN";
+	default:
+		return std::to_string(PClass);
+	}
+}
+
+//void Entities::BaseCharacter::LevelUp()
+//{
+//	GetClass()->LevelUp(this);
+//}
+
+int Entities::BaseCharacter::GetStatAtLevel(std::string PStat, int PLevels)
+{
+	return GetClass()->GetStatAtLevel(this, PStat, PLevels);
+}
+
+void Entities::BaseCharacter::SetClassParameters()
+{
+	GetClass()->SetParameters(this);
 }
 //------------------------------------------------------------------
 

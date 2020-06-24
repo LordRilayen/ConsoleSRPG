@@ -3,9 +3,11 @@
 #include <vector>
 
 #include "GameLoop.h"
+#include "../entities/GenericClass.h"
+#include "../generators/CharacterGenerator.h"
 #include "../levels/TestFiveXFive.h"
 #include "../player/Player.h"
-#include "../generators/CharacterGenerator.h"
+
 
 //Getters and setters-------------------------------------------------------------
 bool Game::GameLoop::GetIsGamePlaying()
@@ -42,6 +44,15 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 	{
 		Entities::BaseCharacter Replica = CharacterGenerator.CreateNewCharacter(AllGameCharacters);
 		Replica.GetCompleteStatus();
+		std::cout << "\n\n";
+		Replica.SetClass(ACOLYTE);
+		std::cout << "Here 1" << std::endl;
+		Entities::GenericClass* Class = Replica.GetClass();
+		std::cout << "Here 2" << std::endl;
+	//	Class->LevelUp(Replica);
+		std::cout << "Here 3" << std::endl;
+		Replica.GetCompleteStatus();
+		std::cout << "Here 4" << std::endl;
 
 		//determine whether to end the game--maybe its own function later?
 		std::cout << "Are you done playing the game? y/n\n";

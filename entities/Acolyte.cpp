@@ -10,13 +10,16 @@ std::string Entities::Acolyte::GetMapSymbol()
 //------------------------------------
 
 //practical functions-----------------
-void Entities::Acolyte::LevelUp(Entities::BaseCharacter* PtrCharacter)
+void Entities::Acolyte::LevelUp(Entities::BaseCharacter PtrCharacter)
 {
-	PtrCharacter->SetMaxHealthPoints(PtrCharacter->GetMaxHealthPoints() + 8);
-	PtrCharacter->SetMaxManaPoints(PtrCharacter->GetMaxManaPoints() + 4);
-	PtrCharacter->SetStrength(PtrCharacter->GetStrength() + 4);
-	PtrCharacter->SetDefense(PtrCharacter->GetDefense() + 6);
-	PtrCharacter->SetSpeed(PtrCharacter->GetSpeed() + 3);
+	std::cout << "Here 5" << std::endl;
+	PtrCharacter.SetMaxHealthPoints(PtrCharacter.GetMaxHealthPoints() + 8);
+	std::cout << "Here 6" << std::endl;
+	PtrCharacter.SetMaxManaPoints(PtrCharacter.GetMaxManaPoints() + 4);
+	PtrCharacter.SetStrength(PtrCharacter.GetStrength() + 4);
+	PtrCharacter.SetDefense(PtrCharacter.GetDefense() + 6);
+	PtrCharacter.SetSpeed(PtrCharacter.GetSpeed() + 3);
+	std::cout << "Here 7" << std::endl;
 }
 int Entities::Acolyte::GetStatAtLevel(Entities::BaseCharacter* PtrCharacter, std::string PStat, int PLevels)
 {
@@ -44,8 +47,22 @@ int Entities::Acolyte::GetStatAtLevel(Entities::BaseCharacter* PtrCharacter, std
 
 	return StatModification;
 }
-{
 
+void Entities::Acolyte::SetParameters(Entities::BaseCharacter* PtrCharacter)
+{
+	if (!PtrCharacter->GetUsableWeapons().empty())
+	{
+		PtrCharacter->GetUsableWeapons().clear();
+	}
+	PtrCharacter->GetUsableWeapons().push_back(AXE);
+	PtrCharacter->GetUsableWeapons().push_back(STAFF);
+
+	if (!PtrCharacter->GetUsableMagic().empty())
+	{
+		PtrCharacter->GetUsableMagic().clear();
+	}
+	PtrCharacter->GetUsableMagic().push_back(GEOMANCY);
+
+	PtrCharacter->SetFunctionalStaffProMod(.5);
 }
-void SetParameters();
 //------------------------------------

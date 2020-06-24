@@ -1,12 +1,17 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <vector>
 
 #include "EClasses.h"
-#include "GenericClass.h"
+
+#include "../loot/EWeapons.h"
+#include "../loot/EMagic.h"
 
 namespace Entities
 {
+	class GenericClass;
+
 	class BaseCharacter
 	{
 	public:
@@ -106,6 +111,13 @@ namespace Entities
 		std::string GetAccessoryTwo();
 		void SetAccessoryTwo(std::string Acs2);
 
+		std::vector<EWeapons> GetUsableWeapons();
+		void SetUsableWeapons(std::vector<EWeapons> PUsableWeapons);
+		std::vector<EMagic> GetUsableMagic();
+		void SetUsableMagic(std::vector<EMagic> PUsableMagic);
+		int GetFunctionalStaffProMod();
+		void SetFunctionalStaffProMod(int PFunctionalStaffProMod);
+
 		int GetXPosition();
 		void SetXPosition(int PXPosition);
 		int GetYPosition();
@@ -120,7 +132,10 @@ namespace Entities
 		void GetCompleteStatus();
 		void AttackTarget(Entities::BaseCharacter& target);
 		int Crit(int CriticalChance, int DamageDealt);
-		void LevelUp();
+		std::string TranslateClass(int PClass);
+		//void LevelUp();
+		int GetStatAtLevel(std::string PStat, int PLevels);
+		void SetClassParameters();
 		//---------------------------------------------------
 
 		//Overloads------------------------------------------
@@ -183,6 +198,11 @@ namespace Entities
 		std::string Gloves = "";
 		std::string AccessoryOne = "";
 		std::string AccessoryTwo = "";
+
+		//Class Parameters
+		std::vector<EWeapons> UsableWeapons{};
+		std::vector<EMagic> UsableMagic{};
+		int FunctionalStaffProMod = 1;
 
 		//Technical
 		int CreationId = 0;

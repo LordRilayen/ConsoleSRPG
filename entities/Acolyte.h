@@ -13,9 +13,9 @@ namespace Entities
 		//------------------------------------
 
 		//practical functions-----------------
-		void LevelUp(Entities::BaseCharacter* PtrCharacter);
+		void LevelUp(Entities::BaseCharacter PtrCharacter);
 		int GetStatAtLevel(Entities::BaseCharacter* PtrCharacter, std::string PStat, int PLevels);
-		void SetParameters();
+		void SetParameters(Entities::BaseCharacter* PtrCharacter);
 		//------------------------------------
 	private:
 		std::string MapSymbol = "o";

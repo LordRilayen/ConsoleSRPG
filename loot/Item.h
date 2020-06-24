@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 
+#include "EWeapons.h"
+
 namespace Loot
 {
 	class Item

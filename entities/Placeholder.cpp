@@ -10,7 +10,7 @@ std::string Entities::Placeholder::GetMapSymbol()
 //----------------------------------------------------------
 
 //Practical functions---------------------------------------
-void Entities::Placeholder::LevelUp(Entities::BaseCharacter* PtrCharacter)
+void Entities::Placeholder::LevelUp(Entities::BaseCharacter PtrCharacter)
 {
 	std::cout << "ERROR: Placeholder class characters are not real, and should not be levelling up." << std::endl;
 }

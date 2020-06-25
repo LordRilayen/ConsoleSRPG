@@ -49,7 +49,7 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 		std::cout << "Here 1" << std::endl;
 		Entities::GenericClass* Class = Replica.GetClass();
 		std::cout << "Here 2" << std::endl;
-	//	Class->LevelUp(Replica);
+		Class->LevelUp(Replica);
 		std::cout << "Here 3" << std::endl;
 		Replica.GetCompleteStatus();
 		std::cout << "Here 4" << std::endl;

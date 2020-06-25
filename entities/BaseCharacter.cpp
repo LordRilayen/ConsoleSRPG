@@ -52,8 +52,11 @@ Entities::GenericClass* Entities::BaseCharacter::GetClass()
 	switch (Class)
 	{
 	case ACOLYTE:
-		Entities::Acolyte* Acolyte;
-		return Acolyte;
+	{
+		Entities::Acolyte Acolyte;
+		Entities::Acolyte* PtrAcolyte = &Acolyte;
+		return PtrAcolyte;
+	}
 	case ALCHEMIST:
 		Entities::Alchemist* Alchemist;
 		return Alchemist;

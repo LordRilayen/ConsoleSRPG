@@ -45,14 +45,16 @@ void Game::GameLoop::PlayGame(Game::GameLoop& PGame)
 		Entities::BaseCharacter Replica = CharacterGenerator.CreateNewCharacter(AllGameCharacters);
 		Replica.GetCompleteStatus();
 		std::cout << "\n\n";
-		Replica.SetClass(ACOLYTE);
-		std::cout << "Here 1" << std::endl;
-		Entities::GenericClass* Class = Replica.GetClass();
+		Replica.SetClass(EClasses::ACOLYTE);
+		Replica.SetClassParameters();
+		/*Entities::GenericClass* Class = Replica.GetClass();
 		std::cout << "Here 2" << std::endl;
+		std::string test = Class->GetMapSymbol();
 		Class->LevelUp(Replica);
-		std::cout << "Here 3" << std::endl;
+		std::cout << "Here 3" << std::endl;*/
+		Replica.LevelUp();
 		Replica.GetCompleteStatus();
-		std::cout << "Here 4" << std::endl;
+		std::cout << "HP at Lvl 24: " + std::to_string(Replica.GetStatAtLevel("HP", 24)) << std::endl;
 
 		//determine whether to end the game--maybe its own function later?
 		std::cout << "Are you done playing the game? y/n\n";

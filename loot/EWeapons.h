@@ -1,6 +1,7 @@
 #pragma once
+#include <string>
 
-enum EWeapons
+enum class EWeapons
 {
 	FIST,
 	SWORD,

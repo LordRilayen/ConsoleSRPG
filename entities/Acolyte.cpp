@@ -54,14 +54,14 @@ void Entities::Acolyte::SetParameters(Entities::BaseCharacter* PtrCharacter)
 	{
 		PtrCharacter->GetUsableWeapons().clear();
 	}
-	PtrCharacter->GetUsableWeapons().push_back(AXE);
-	PtrCharacter->GetUsableWeapons().push_back(STAFF);
+	PtrCharacter->GetUsableWeapons().push_back(EWeapons::AXE);
+	PtrCharacter->GetUsableWeapons().push_back(EWeapons::STAFF);
 
 	if (!PtrCharacter->GetUsableMagic().empty())
 	{
 		PtrCharacter->GetUsableMagic().clear();
 	}
-	PtrCharacter->GetUsableMagic().push_back(GEOMANCY);
+	PtrCharacter->GetUsableMagic().push_back(EMagic::GEOMANCY);
 
 	PtrCharacter->SetFunctionalStaffProMod(.5);
 }

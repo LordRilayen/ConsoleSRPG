@@ -1,6 +1,6 @@
 #pragma once
 
-enum EMagic
+enum class EMagic
 {
 	ASTROMANCY,
 	CHEMIMANCY,

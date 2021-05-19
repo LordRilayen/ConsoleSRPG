@@ -133,7 +133,7 @@ namespace Entities
 		void AttackTarget(Entities::BaseCharacter& target);
 		int Crit(int CriticalChance, int DamageDealt);
 		std::string TranslateClass(int PClass);
-		//void LevelUp();
+		void LevelUp();
 		int GetStatAtLevel(std::string PStat, int PLevels);
 		void SetClassParameters();
 		//---------------------------------------------------
@@ -143,7 +143,7 @@ namespace Entities
 		//---------------------------------------------------
 	private:
 		std::string Name = "Replica";
-		EClasses Class = PLACEHOLDER;
+		EClasses Class = EClasses::PLACEHOLDER;
 		
 		//The symbol to be placed on the game map to represent this character
 		std::string Symbol = " ";
@@ -200,8 +200,8 @@ namespace Entities
 		std::string AccessoryTwo = "";
 
 		//Class Parameters
-		std::vector<EWeapons> UsableWeapons{};
-		std::vector<EMagic> UsableMagic{};
+		std::vector<EWeapons> UsableWeapons;
+		std::vector<EMagic> UsableMagic;
 		int FunctionalStaffProMod = 1;
 
 		//Technical
@@ -210,5 +210,17 @@ namespace Entities
 		int YPosition = 0;
 		bool IsPlaceholder = true;
 		bool IsActive = false;
+
+		//Level up functions--------------------
+		void LUAcolyte();
+		//--------------------------------------
+
+		//Get Stat At Level functions-----------
+		int GSALAcolyte(std::string PStat, int PLevels);
+		//--------------------------------------
+
+		//Set Parameter functions---------------
+		void SPAcolyte();
+		//--------------------------------------
 	};
 }

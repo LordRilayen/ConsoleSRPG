@@ -51,64 +51,64 @@ Entities::GenericClass* Entities::BaseCharacter::GetClass()
 {
 	switch (Class)
 	{
-	case ACOLYTE:
+	case EClasses::ACOLYTE:
 	{
 		Entities::Acolyte Acolyte;
 		Entities::Acolyte* PtrAcolyte = &Acolyte;
 		return PtrAcolyte;
 	}
-	case ALCHEMIST:
+	case EClasses::ALCHEMIST:
 		Entities::Alchemist* Alchemist;
 		return Alchemist;
-	case ANCHORITE:
+	case EClasses::ANCHORITE:
 		Entities::Anchorite* Anchorite;
 		return Anchorite;
-	case ASTROLOGER:
+	case EClasses::ASTROLOGER:
 		Entities::Astrologer* Astrologer;
 		return Astrologer;
-	case BLACKSMITH:
+	case EClasses::BLACKSMITH:
 		Entities::Blacksmith* Blacksmith;
 		return Blacksmith;
-	case BOTANIST:
+	case EClasses::BOTANIST:
 		Entities::Botanist* Botanist;
 		return Botanist;
-	case CONJURER:
+	case EClasses::CONJURER:
 		Entities::Conjurer* Conjurer;
 		return Conjurer;
-	case DISCIPLE:
+	case EClasses::DISCIPLE:
 		Entities::Disciple* Disciple;
 		return Disciple;
-	case ENCHANTER:
+	case EClasses::ENCHANTER:
 		Entities::Enchanter* Enchanter;
 		return Enchanter;
-	case MINER:
+	case EClasses::MINER:
 		Entities::Miner* Miner;
 		return Miner;
-	case PAINTER:
+	case EClasses::PAINTER:
 		Entities::Painter* Painter;
 		return Painter;
-	case PIERCER:
+	case EClasses::PIERCER:
 		Entities::Piercer* Piercer;
 		return Piercer;
-	case RUFFIAN:
+	case EClasses::RUFFIAN:
 		Entities::Ruffian* Ruffian;
 		return Ruffian;
-	case SHAMAN:
+	case EClasses::SHAMAN:
 		Entities::Shaman* Shaman;
 		return Shaman;
-	case SQUIRE:
+	case EClasses::SQUIRE:
 		Entities::Squire* Squire;
 		return Squire;
-	case SURVIVOR:
+	case EClasses::SURVIVOR:
 		Entities::Survivor* Survivor;
 		return Survivor;
-	case UPHOLDER:
+	case EClasses::UPHOLDER:
 		Entities::Upholder* Upholder;
 		return Upholder;
-	case YEOMAN:
+	case EClasses::YEOMAN:
 		Entities::Yeoman* Yeoman;
 		return  Yeoman;
-	case PLACEHOLDER:
+	case EClasses::PLACEHOLDER:
 	default:
 		Entities::Placeholder* Placeholder;
 		return Placeholder;
@@ -522,7 +522,7 @@ void Entities::BaseCharacter::GetCompleteStatus()
 {
 	std::cout <<
 		"Name: " << Name << std::endl <<
-		"Class: " << TranslateClass(Class) << std::endl <<
+		"Class: " << TranslateClass((int)Class) << std::endl <<
 		"STATS " << std::endl <<
 		"Level: " << Level << std::endl <<
 		"HP: " << CurrentHealthPoints << "/" << MaxHealthPoints << std::endl <<
@@ -568,11 +568,11 @@ void Entities::BaseCharacter::GetCompleteStatus()
 		"USABLE WEAPONS AND MAGIC" << std::endl;
 	for (int i = 0; i < UsableWeapons.size(); i++)
 	{
-		std::cout << std::to_string(UsableWeapons[i]) + ", " << std::endl;
+		std::cout << "Something" << std::endl;
 	}
 	for (int i = 0; i < UsableMagic.size(); i++)
 	{
-		std::cout << std::to_string(UsableMagic[i]) + ", " << std::endl;
+		std::cout << "Something magic" << std::endl;
 	}
 
 
@@ -650,19 +650,154 @@ std::string Entities::BaseCharacter::TranslateClass(int PClass)
 	}
 }
 
-//void Entities::BaseCharacter::LevelUp()
-//{
-//	GetClass()->LevelUp(this);
-//}
+void Entities::BaseCharacter::LevelUp()
+{
+	switch (Class)
+	{
+	case EClasses::ACOLYTE:
+		LUAcolyte();
+		break;
+	case EClasses::ALCHEMIST:
+		break;
+	case EClasses::ANCHORITE:
+		break;
+	case EClasses::ASTROLOGER:
+		break;
+	case EClasses::BLACKSMITH:
+		break;
+	case EClasses::BOTANIST:
+		break;
+	case EClasses::CONJURER:
+		break;
+	case EClasses::DISCIPLE:
+		break;
+	case EClasses::ENCHANTER:
+		break;
+	case EClasses::MINER:
+		break;
+	case EClasses::PAINTER:
+		break;
+	case EClasses::PIERCER:
+		break;
+	case EClasses::PLACEHOLDER:
+		std::cout << "ERROR: Placeholder class characters are not real, and should not be levelling up." << std::endl;
+		break;
+	case EClasses::RUFFIAN:
+		break;
+	case EClasses::SHAMAN:
+		break;
+	case EClasses::SQUIRE:
+		break;
+	case EClasses::SURVIVOR:
+		break;
+	case EClasses::UPHOLDER:
+		break;
+	case EClasses::YEOMAN:
+		break;
+	default:
+		break;
+	}
+	Level++;
+}
 
 int Entities::BaseCharacter::GetStatAtLevel(std::string PStat, int PLevels)
 {
-	return GetClass()->GetStatAtLevel(this, PStat, PLevels);
+	//returns how many points should be added to a particular stat temporarily
+	int Modification = 0;
+	switch (Class)
+	{
+	case EClasses::ACOLYTE:
+		Modification = GSALAcolyte(PStat, PLevels);
+		break;
+	case EClasses::ALCHEMIST:
+		break;
+	case EClasses::ANCHORITE:
+		break;
+	case EClasses::ASTROLOGER:
+		break;
+	case EClasses::BLACKSMITH:
+		break;
+	case EClasses::BOTANIST:
+		break;
+	case EClasses::CONJURER:
+		break;
+	case EClasses::DISCIPLE:
+		break;
+	case EClasses::ENCHANTER:
+		break;
+	case EClasses::MINER:
+		break;
+	case EClasses::PAINTER:
+		break;
+	case EClasses::PIERCER:
+		break;
+	case EClasses::PLACEHOLDER:
+		std::cout << "ERROR: Placeholder class characters are not real, and should not be receiving stat modifications." << std::endl;
+		return 0;
+	case EClasses::RUFFIAN:
+		break;
+	case EClasses::SHAMAN:
+		break;
+	case EClasses::SQUIRE:
+		break;
+	case EClasses::SURVIVOR:
+		break;
+	case EClasses::UPHOLDER:
+		break;
+	case EClasses::YEOMAN:
+		break;
+	default:
+		break;
+	}
+	return Modification;
 }
 
 void Entities::BaseCharacter::SetClassParameters()
 {
-	GetClass()->SetParameters(this);
+	switch (Class)
+	{
+	case EClasses::ACOLYTE:
+		SPAcolyte();
+		break;
+	case EClasses::ALCHEMIST:
+		break;
+	case EClasses::ANCHORITE:
+		break;
+	case EClasses::ASTROLOGER:
+		break;
+	case EClasses::BLACKSMITH:
+		break;
+	case EClasses::BOTANIST:
+		break;
+	case EClasses::CONJURER:
+		break;
+	case EClasses::DISCIPLE:
+		break;
+	case EClasses::ENCHANTER:
+		break;
+	case EClasses::MINER:
+		break;
+	case EClasses::PAINTER:
+		break;
+	case EClasses::PIERCER:
+		break;
+	case EClasses::PLACEHOLDER:
+		break;
+	case EClasses::RUFFIAN:
+		break;
+	case EClasses::SHAMAN:
+		break;
+	case EClasses::SQUIRE:
+		break;
+	case EClasses::SURVIVOR:
+		break;
+	case EClasses::UPHOLDER:
+		break;
+	case EClasses::YEOMAN:
+		break;
+	default:
+		break;
+	}
 }
 //------------------------------------------------------------------
 
@@ -675,4 +810,67 @@ bool Entities::operator== (const Entities::BaseCharacter& PCharacter1, const Ent
 	}
 	return false;
 }
+//------------------------------------------------------------------
+
+//Private functions-------------------------------------------------
+//=================
+//Level up functions--------------------
+void Entities::BaseCharacter::LUAcolyte()
+{
+	SetMaxHealthPoints(GetMaxHealthPoints() + 8);
+	SetMaxManaPoints(GetMaxManaPoints() + 4);
+	SetStrength(GetStrength() + 4);
+	SetDefense(GetDefense() + 6);
+	SetSpeed(GetSpeed() + 3);
+}
+//--------------------------------------
+
+//Get Stat At Level functions-----------
+int Entities::BaseCharacter::GSALAcolyte(std::string PStat, int PLevels)
+{
+	int StatModification = 0;
+	if (PStat.compare("HP") == 0)
+	{
+		StatModification = 8 * PLevels;
+	}
+	else if (PStat.compare("MP") == 0)
+	{
+		StatModification = 4 * PLevels;
+	}
+	else if (PStat.compare("Str") == 0)
+	{
+		StatModification = 4 * PLevels;
+	}
+	else if (PStat.compare("Def") == 0)
+	{
+		StatModification = 6 * PLevels;
+	}
+	else if (PStat.compare("Spd") == 0)
+	{
+		StatModification = 3 * PLevels;
+	}
+
+	return StatModification;
+}
+//--------------------------------------
+
+//Set Parameter functions---------------
+void Entities::BaseCharacter::SPAcolyte()
+{
+	if (!GetUsableWeapons().empty())
+	{
+		GetUsableWeapons().clear();
+	}
+	GetUsableWeapons().push_back(EWeapons::AXE);
+	GetUsableWeapons().push_back(EWeapons::STAFF);
+
+	if (!GetUsableMagic().empty())
+	{
+		GetUsableMagic().clear();
+	}
+	GetUsableMagic().push_back(EMagic::GEOMANCY);
+
+	SetFunctionalStaffProMod(.5);
+}
+//--------------------------------------
 //------------------------------------------------------------------

@@ -2,7 +2,7 @@
 #include <map>
 #include <string>
 
-enum EClasses
+enum class EClasses : int
 {
 	ACOLYTE,
 	ALCHEMIST,
